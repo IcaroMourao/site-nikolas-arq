@@ -47,12 +47,14 @@ export default {
 <style lang="scss">
 .header-container {
   .nav-bar {
+    width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     h1 {
       width: 100%;
       color: $normal-text;
-      margin: 0 6rem;
+      margin-left: 6rem;
+      margin-right: 2rem;
       padding-top: .525rem;
     }
     .nav-list {

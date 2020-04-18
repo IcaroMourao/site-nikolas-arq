@@ -1,0 +1,12 @@
+html, body {
+  font-family: $font-family-sans-serif;
+  display: block;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: $background;
+}
+
+img {
+    max-width: 100%;
+}

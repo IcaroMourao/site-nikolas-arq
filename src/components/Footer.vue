@@ -1,30 +1,30 @@
 <template>
   <footer id="footer">
-    <div class="info">
-      <a class="footer-personal">Nikolas de Sena Mourão</a>
-      <a class="footer-personal">Brasilia de todos os santo, Brasil</a>
-      <a class="footer-personal">(61) 98945-5555</a>
-      <a class="footer-personal">nikolas@yahoo.com.br</a>
-    </div>
-    <div class="social-icons">
-      <div class="img-footer">
-        <img src="../assets/icons/facebook-blue.svg" height="48px" width="48px" alt="">
-      </div>
-      <div class="img-footer">
-        <img src="../assets/icons/instagram-colorful.svg" height="48px" width="48px" alt="">
-      </div>
-      <div class="img-footer">
-        <img src="../assets/icons/linkedin-blue.svg" height="48px" width="48px" alt="">
-      </div>
-    </div>
+    <b-row>
+      <b-col cols="12" sm="6">
+        <div class="footer-info">
+          <a class="footer-personal">Nikolas de Sena Mourão</a>
+          <a class="footer-personal">Brasilia de todos os santo, Brasil</a>
+          <a class="footer-personal">(61) 98945-5555</a>
+          <a class="footer-personal">nikolas@yahoo.com.br</a>
+        </div>
+      </b-col>
+      <b-col cols="12" sm="6">
+        <b-row no-gutters>
+          <div class="social-group">
+            <div class="facebook-img"/>
+            <div class="instagram-img"/>
+            <div class="linkedin-img"/>
+          </div>
+        </b-row>
+      </b-col>
+    </b-row>
   </footer>
 </template>
 
 
 <style lang="scss">
 #footer {
-  display: inline-flex;
-  justify-content: space-around;
   background: $background-footer;
   width: 100%;
   padding-top: 2em;
@@ -32,24 +32,43 @@
   position: fixed;
   bottom:0;
   left:0;
-  .info {
-    overflow: hidden;
-    margin: 0 2rem;
+  .footer-info {
+    display: grid;
+    justify-content: center;
+    padding-bottom: 1.5rem;
     a {
       display: block;
       color: $normal-text;
     }
   }
-  .social-icons{
-    .img-footer {
-      display: inline-flex;
-      padding-right: 3rem;
-      img{
-        overflow: hidden;
-      }
+  .social-group {
+    display: flex;
+    margin: auto;
+    .facebook-img {
+      width: 48px;
+      height: 48px;
+      background: url('../assets/icons/facebook-blue.svg');
+    }
+    .instagram-img {
+      width: 48px;
+      height: 48px;
+      margin-left: 1.5rem;
+      background: url('../assets/icons/instagram-colorful.svg');
+    }
+    .linkedin-img {
+      width: 48px;
+      height: 48px;
+      margin-left: 1.5rem;
+      background: url('../assets/icons/linkedin-blue.svg');
     }
   }
 }
 
-
+@media(min-width: map-get($grid-breakpoints, "sm")) {
+  #footer {
+    .social-group {
+      margin: 0;
+    }
+  }
+}
 </style>

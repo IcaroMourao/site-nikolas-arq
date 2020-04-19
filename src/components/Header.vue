@@ -2,7 +2,9 @@
   <div class="header-container">
     <b-navbar type="dark" variant="dark">
       <b-navbar-nav class="nav-bar">
-      <h1 class="app-title">Nikolas Mourão</h1>
+        <a class="navbar-brand app-name" href="/">
+          <img src="../assets/images/name.png" width="227px" height="90px" alt="">
+        </a>
         <ul class="nav-list">
           <li class="nav-item">
             <router-link
@@ -50,12 +52,16 @@ export default {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    h1 {
-      width: 100%;
-      color: $normal-text;
-      margin-left: 6rem;
-      margin-right: 2rem;
+    .app-name {
       padding-top: .525rem;
+      font-size: 2.5rem;
+      .brand-img {
+        img {
+          height: 100%;
+          width: auto;
+          padding: 1rem;
+        }
+      }
     }
     .nav-list {
       width: 100%;
@@ -89,6 +95,16 @@ export default {
               font-size: 1.2rem;
             }
         }
+      }
+    }
+  }
+}
+
+@media(min-width: map-get($grid-breakpoints, "md")) {
+  .header-container {
+    .nav-bar {
+      .app-name {
+        margin: 0 6rem;
       }
     }
   }

@@ -1,12 +1,17 @@
 <template>
   <div>
-
+    <Slider/>
   </div>
 </template>
 
 <script>
-export default {
+import Slider from '@/components/Slider.vue';
 
+export default {
+  name: 'Home',
+  components: {
+    Slider,
+  },
 };
 </script>
 

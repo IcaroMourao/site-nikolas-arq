@@ -26,12 +26,11 @@
 <style lang="scss">
 #footer {
   background: $background-footer;
+  position: relative;
   width: 100%;
   padding-top: 2em;
   padding-bottom: 2em;
-  position: fixed;
-  bottom:0;
-  left:0;
+  margin-top: 2rem;
   .footer-info {
     display: grid;
     justify-content: center;

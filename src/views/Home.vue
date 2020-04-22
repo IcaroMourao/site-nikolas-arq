@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-container">
     <Slider/>
   </div>
 </template>
@@ -16,5 +16,7 @@ export default {
 </script>
 
 <style>
-
+  .home-container {
+    padding: 2rem;
+  }
 </style>

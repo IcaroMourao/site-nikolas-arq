@@ -1,10 +1,8 @@
 <template>
-  <div id="all">
-    <div id="app">
-      <Header/>
-      <router-view/>
-      <Footer/>
-    </div>
+  <div id="app">
+    <Header/>
+    <router-view/>
+    <Footer/>
   </div>
 </template>
 
@@ -26,13 +24,9 @@ export default {
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap-vue/src/index.scss";
 
-#all {
+#app {
   width: 100%;
   height: 100%;
-  background-color: $app-background;
-}
-#app {
-  min-height: 100vh;
   background-color: $app-background;
 }
 

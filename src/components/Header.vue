@@ -1,41 +1,23 @@
 <template>
   <div class="header-container">
-    <b-navbar type="dark" variant="dark">
-      <b-navbar-nav class="nav-bar">
-        <a class="navbar-brand app-name" href="/">
-          <img src="../assets/images/name.png" width="227px" height="90px" alt="">
-        </a>
-        <ul class="nav-list">
-          <li class="nav-item">
+    <b-navbar type="dark" variant="dark" class="header-navbar" toggleable="lg">
+      <b-navbar-brand href="#" class="header-brand">
+        <router-link to="/" title="Nikolas Mourão">
+          <img src="../assets/images/name.png" alt="Nikolas Mourão">
+        </router-link>
+      </b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse" class="nav-toggle-button"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav class="m-auto">
+          <b-nav-item class="header-nav-item" v-for="(item, index) in menu" :key="index">
             <router-link
               active-class="current"
               :exact="true"
-              class="nav-link"
-              to="/"> Início </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link
-              active-class="current"
-              :exact="true"
-              class="nav-link"
-              to="/about"> Sobre </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link
-              active-class="current"
-              :exact="true"
-              class="nav-link"
-              to="/projects"> Projetos </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link
-              active-class="current"
-              :exact="true"
-              class="nav-link"
-              to="/contact"> Contato </router-link>
-          </li>
-        </ul>
-      </b-navbar-nav>
+              class="header-nav-link nav-link"
+              :to="item.route"> {{ item.name }} </router-link>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
     </b-navbar>
   </div>
 </template>
@@ -43,68 +25,82 @@
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      menu: [
+        {
+          name: 'Inicio',
+          route: '/',
+        },
+        {
+          name: 'Sobre',
+          route: '/about',
+        },
+        {
+          name: 'Projetos',
+          route: '/projects',
+        },
+        {
+          name: 'Contato',
+          route: '/contact',
+        },
+      ],
+    };
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header-container {
-  .nav-bar {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    .app-name {
-      padding-top: .525rem;
-      font-size: 2.5rem;
-      .brand-img {
-        img {
-          height: 100%;
-          width: auto;
-          padding: 1rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 60px;
+  @media (min-width: map-get($grid-breakpoints, "xl")) {
+    height: 80px;
+  }
+  .header-navbar {
+    padding: 0 2rem;
+    .nav-toggle-button {
+      border: none;
+      outline: none;
+      &[aria-expanded="true"] {
+        background-color: $header-dropdown-background;
+      }
+      &::v-deep > .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+    }
+    .header-brand {
+      padding: 0;
+      img {
+        max-height: 60px;
+        outline: none;
+        @media (min-width: map-get($grid-breakpoints, "xl")) {
+          max-height: 80px;
         }
       }
     }
-    .nav-list {
-      width: 100%;
-      padding: .532rem 0 36px;
-      margin: 0;
-      list-style: none;
-      display: inline-flex;
-      &::after {
-        content: '';
-        min-width: 15px;
-        height: 15px;
-        position: relative;
-      }
-      .nav-item {
-        margin: 0 .5rem;
-        height: 100%;
-        display: inline-block;
-        .nav-link {
+    .header-nav-item {
+      text-align: center;
+      text-transform: uppercase;
+      .header-nav-link {
+        color: $normal-text;
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
           border-bottom: 3px solid transparent;
           height: 100%;
-          display: flex;
           align-items: center;
-          color: $normal-text;
           white-space: nowrap;
           text-decoration: none;
           transition: all 200ms ease;
-            &.current,
-            &:hover {
-              color: $normal-text;
-              border-color: $comment;
-              font-size: 1.2rem;
-            }
+          &.current,
+          &:hover {
+            color: $normal-text;
+            border-color: $comment;
+          }
         }
-      }
-    }
-  }
-}
-
-@media(min-width: map-get($grid-breakpoints, "md")) {
-  .header-container {
-    .nav-bar {
-      .app-name {
-        margin: 0 6rem;
       }
     }
   }

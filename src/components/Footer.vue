@@ -25,13 +25,13 @@
 
 <style lang="scss">
 #footer {
-  background: $background-footer;
+  background: $background-header-footer;
   width: 100%;
   padding-top: 2em;
   padding-bottom: 2em;
-  position: fixed;
-  bottom:0;
-  left:0;
+  > div {
+    margin: 0;
+  }
   .footer-info {
     display: grid;
     justify-content: center;

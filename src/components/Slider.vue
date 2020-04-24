@@ -2,25 +2,22 @@
   <div class="slider-container">
     <div class="carousel">
       <div class="slide">
-        <img src="@/assets/images/slider/image1.jpeg" width="1000px" height="500" alt="">
+        <img src="@/assets/images/slider/image1.jpeg" width="100%" alt="">
       </div>
       <div class="slide">
-        <img src="@/assets/images/slider/image2.jpeg" width="1000px" height="500" alt="">
+        <img src="@/assets/images/slider/image2.jpeg" width="100%" alt="">
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Slick from 'vue-slick';
 import $ from 'jquery';
 import '../../node_modules/slick-carousel/slick/slick.css';
 
 export default {
   name: 'Slider',
   components: {
-    // eslint-disable-next-line vue/no-unused-components
-    Slick,
   },
   data() {
     return {
@@ -52,6 +49,8 @@ export default {
 <style lang="scss" scoped>
 .slider-container {
   .carousel {
+    max-width: 1000px;
+    margin: auto;
     .slide {
     }
   }

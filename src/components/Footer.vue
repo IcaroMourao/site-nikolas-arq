@@ -1,8 +1,8 @@
 <template>
   <footer id="footer">
     <b-row>
-      <b-col cols="12" sm="4">
-        <router-link to="/" title="Nikolas Mourão">
+      <b-col cols="12 text-center" sm="4">
+        <router-link class="footer-logo" to="/" title="Nikolas Mourão">
           <img src="../assets/images/name.png" alt="Nikolas Mourão">
         </router-link>
       </b-col>
@@ -24,8 +24,12 @@
         </b-row>
       </b-col>
     </b-row>
-    <b-row>
-      <a class="footer-copyright">Copyright © 2020 Nikolas Mourão. Todos direitos reservados.</a>
+    <b-row cols="12">
+      <b-col class="footer-copyright-col">
+        <p class="footer-copyright">
+          Copyright © 2020 Nikolas Mourão. Todos direitos reservados.
+        </p>
+      </b-col>
     </b-row>
   </footer>
 </template>
@@ -33,14 +37,21 @@
 
 <style lang="scss" scoped>
 #footer {
-  background: $background-header-footer;
+  background-color: $background-header-footer;
   width: 100%;
   padding-top: 2em;
-  padding-bottom: 2em;
   > div {
     margin: 0;
   }
+  .footer-logo {
+    text-align: center;
+    img {
+      max-width: 100%;
+    }
+  }
   .footer-info {
+    display: grid;
+    justify-content: center;
     padding-bottom: 1.5rem;
     a {
       display: block;
@@ -50,6 +61,7 @@
   .social-group {
     display: flex;
     margin: auto;
+    padding-bottom: 1.5rem;
     .facebook-img {
       width: 48px;
       height: 48px;
@@ -97,9 +109,10 @@
       background-repeat: no-repeat;
     }
   }
+  .footer-copyright-col {
+    text-align: end;
+  }
   .footer-copyright {
-    position: absolute;
-    right: 0;
     color: $normal-text;
     padding-right: 2rem;
     font-size: .875rem;
@@ -109,13 +122,5 @@
 img {
   max-height: 100px;
   outline: none;
-}
-
-@media(min-width: map-get($grid-breakpoints, "sm")) {
-  #footer {
-    .social-group {
-      margin: 0;
-    }
-  }
 }
 </style>

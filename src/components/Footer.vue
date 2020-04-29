@@ -26,9 +26,9 @@
     </b-row>
     <b-row cols="12">
       <b-col class="footer-copyright-col">
-        <p class="footer-copyright">
+        <a class="footer-copyright">
           Copyright © 2020 Nikolas Mourão. Todos direitos reservados.
-        </p>
+        </a>
       </b-col>
     </b-row>
   </footer>
@@ -111,6 +111,8 @@
   }
   .footer-copyright-col {
     text-align: end;
+    background-color: $footer-copyright;
+    padding-bottom: .2rem;
   }
   .footer-copyright {
     color: $normal-text;

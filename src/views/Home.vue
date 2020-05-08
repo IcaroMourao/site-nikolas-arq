@@ -17,7 +17,6 @@ export default {
 
 <style>
   .home-container {
-    padding: 2rem;
     min-height: 80%;
   }
 </style>

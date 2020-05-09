@@ -2,7 +2,7 @@
   <div id="app">
     <Header/>
     <transition name="fade" mode="out-in">
-      <router-view/>
+      <router-view id="content"/>
     </transition>
     <Footer/>
   </div>
@@ -30,6 +30,10 @@ export default {
   width: 100%;
   height: 100%;
   background-color: $app-background;
+}
+
+#content {
+  min-height: calc(100vh - 180px);
 }
 
 .fade-enter-active,

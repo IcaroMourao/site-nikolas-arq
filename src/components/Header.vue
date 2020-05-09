@@ -41,8 +41,8 @@ export default {
           route: '/projects',
         },
         {
-          name: 'Contato',
-          route: '/contact',
+          name: 'Outros serviços',
+          route: '/another-services',
         },
       ],
     };

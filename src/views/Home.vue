@@ -16,7 +16,5 @@ export default {
 </script>
 
 <style>
-  .home-container {
-    padding: 2rem;
-  }
+
 </style>

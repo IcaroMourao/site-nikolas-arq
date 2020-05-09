@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header/>
-    <router-view/>
+    <transition name="fade" mode="out-in">
+      <router-view/>
+    </transition>
     <Footer/>
   </div>
 </template>
@@ -28,6 +30,16 @@ export default {
   width: 100%;
   height: 100%;
   background-color: $app-background;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 500ms;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
 </style>

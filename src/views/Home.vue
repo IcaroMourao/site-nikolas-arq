@@ -16,7 +16,5 @@ export default {
 </script>
 
 <style>
-  .home-container {
-    min-height: 80%;
-  }
+
 </style>

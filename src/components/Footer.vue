@@ -8,18 +8,22 @@
       </b-col>
       <b-col cols="12" sm="4">
         <div class="footer-info">
-          <a class="footer-personal">Nikolas de Sena Mourão</a>
-          <a class="footer-personal">Brasilia de todos os santo, Brasil</a>
-          <a class="footer-personal">(61) 98945-5555</a>
-          <a class="footer-personal">nikolas@yahoo.com.br</a>
+          <a class="footer-personal">Nikolas Mourão</a>
+          <a class="footer-personal">Brasilia/DF</a>
+          <a class="footer-personal">(61) 99439-6832</a>
+          <a
+            class="footer-personal"
+            href="mailto:nikolasmouraoarquiteto@gmail.com">
+              nikolasmouraoarquiteto@gmail.com
+          </a>
         </div>
       </b-col>
       <b-col cols="12" sm="4">
         <b-row no-gutters>
           <div class="social-group">
-            <a class="facebook-img" href="https://www.facebook.com/" target="_blank"/>
-            <a class="instagram-img circle" href="https://www.instagram.com/" target="_blank"/>
-            <a class="linkedin-img circle" href="https://www.linkedin.com/" target="_blank"/>
+            <a class="facebook-img" href="https://www.facebook.com/nikolasm.arq" target="_blank"/>
+            <a class="instagram-img circle" href="https://www.instagram.com/nikolasm.arq" target="_blank"/>
+            <a class="linkedin-img circle" href="https://www.linkedin.com/in/nikolas-mourão-502018143/" target="_blank"/>
           </div>
         </b-row>
       </b-col>

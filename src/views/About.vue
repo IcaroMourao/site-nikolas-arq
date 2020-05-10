@@ -13,7 +13,7 @@
           </p>
         </b-col>
         <b-col class="about-image" sm="12" md="6">
-          <img src="..\assets\images\about-image.png" alt="About" width="100%">
+          <img src="..\assets\images\about\about-image.png" alt="About" width="100%">
         </b-col>
       </b-row>
     </div>

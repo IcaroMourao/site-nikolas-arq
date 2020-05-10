@@ -79,6 +79,10 @@ export default {
   }
 }
 
+.slick-slider {
+  margin: 0 !important;
+}
+
 .slick-prev {
   left: 25px;
 }

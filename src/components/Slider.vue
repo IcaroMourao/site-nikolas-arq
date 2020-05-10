@@ -1,8 +1,11 @@
 <template>
   <div class="slider-container">
     <Slick ref="slick" :options="slickOptions">
-      <a><img src="@/assets/images/slider/image1.jpeg" width="100%" alt=""></a>
-      <a><img src="@/assets/images/slider/image2.jpeg" width="100%" alt=""></a>
+      <a><img src="@/assets/images/home/slider/image1.jpeg" width="100%" alt=""></a>
+      <a><img src="@/assets/images/home/slider/image2.jpg" width="100%" alt=""></a>
+      <a><img src="@/assets/images/home/slider/image3.jpg" width="100%" alt=""></a>
+      <a><img src="@/assets/images/home/slider/image4.jpg" width="100%" alt=""></a>
+      <a><img src="@/assets/images/home/slider/image5.jpg" width="100%" alt=""></a>
     </Slick>
   </div>
 </template>
@@ -25,7 +28,7 @@ export default {
         slidesToScroll: 1,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 2500,
+        autoplaySpeed: 3000,
         dots: true,
         fade: false,
         pauseOnFocus: false,

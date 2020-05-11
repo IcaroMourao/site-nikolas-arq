@@ -1,11 +1,9 @@
 <template>
   <div class="slider-container">
-    <Slick ref="slick" :options="slickOptions">
-      <a><img src="@/assets/images/home/slider/image1.jpeg" width="100%" alt=""></a>
-      <a><img src="@/assets/images/home/slider/image2.jpg" width="100%" alt=""></a>
-      <a><img src="@/assets/images/home/slider/image3.jpg" width="100%" alt=""></a>
-      <a><img src="@/assets/images/home/slider/image4.jpg" width="100%" alt=""></a>
-      <a><img src="@/assets/images/home/slider/image5.jpg" width="100%" alt=""></a>
+    <Slick ref="slick" :options="slickOptions ? slickOptions : slickDefault">
+      <a v-for="(item, index) in items" :key="index">
+        <img :src="getImage(item)" width="100%" :alt="item.name">
+      </a>
     </Slick>
   </div>
 </template>
@@ -19,9 +17,18 @@ export default {
   components: {
     Slick,
   },
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+    slickOptions: {
+      type: Object,
+    },
+  },
   data() {
     return {
-      slickOptions: {
+      slickDefault: {
         arrows: true,
         swipe: true,
         slidesToShow: 1,
@@ -50,6 +57,9 @@ export default {
       this.$nextTick(() => {
         this.$refs.slick.reSlick();
       });
+    },
+    getImage(item) {
+      return item.img;
     },
   },
 };

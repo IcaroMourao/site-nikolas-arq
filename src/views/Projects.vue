@@ -69,7 +69,7 @@ export default {
     return {
       selectedProject: undefined,
       projects: ProjectsHelper.projects,
-      sliderImgs: ProjectsHelper.sliderImgs,
+      sliderImgs: {},
       slickOptions: {
         arrows: true,
         swipe: true,
@@ -86,9 +86,6 @@ export default {
     };
   },
   methods: {
-    showText() {
-
-    },
     getProjectImage(project) {
       return project.img;
     },
@@ -96,6 +93,13 @@ export default {
       this.selectedProject = project;
       // eslint-disable-next-line no-param-reassign
       project.showName = false;
+      if (this.selectedProject.id === 1) {
+        this.sliderImgs = ProjectsHelper.sliderImgs1;
+      } else if (this.selectedProject.id === 2) {
+        this.sliderImgs = ProjectsHelper.sliderImgs2;
+      } else {
+        this.sliderImgs = ProjectsHelper.sliderImgs3;
+      }
       this.scrollToTop();
     },
     backToProjects() {

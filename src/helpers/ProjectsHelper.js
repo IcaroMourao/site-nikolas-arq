@@ -10,7 +10,7 @@ export default class ProjectsHelper {
       id: 1,
       architect: 'Nikolas Mourão',
       area: 78,
-      year: 2019,
+      year: 2018,
       sliderImgs: [
         {
           name: '01',
@@ -41,8 +41,8 @@ export default class ProjectsHelper {
       description: '<p>Ambientes funcionais e integrados são a nova tendência em casas e principalmente apartamentos. Assim como os home offices que estão cada vez mais comuns devido a tecnologia e a diversos trabalhos que dependem dela, esse ambiente foi pensado exatamente para ser um local de trabalho e ao mesmo tempo de descanso.</p><p>Nesse ambiente optou-se pela cor predominante azul, com um painel ripado e com todo mobiliário com acabamento em metal dourado e preto. Um armário alto com nichos no canto do escritório para aumentar a praticidade e organização. Na mesa de trabalho uma iluminação direta para facilitar o trabalho/leitura.</p>',
       id: 2,
       architect: 'Nikolas Mourão',
-      area: 78,
-      year: 2019,
+      area: 102,
+      year: 2016,
       sliderImgs: [
         {
           name: '01',
@@ -81,8 +81,8 @@ export default class ProjectsHelper {
       description: '<p>Quarto, e closet ocupam 45 metros quadrados, aproximadamente. A seleção do mobiliário e a presença da madeira clara e rattan em todo o ambiente, com acabamento de filetes metalizados e no piso, além das lâminas de madeira, as paredes também foram revestidas com ripas de madeiras claras. Tapeçarias, tecidos macios e a iluminação que destaca os detalhes proporcionam uma experiência única de conforto e aconchego para o ambiente.</p><p>Para manter o visual limpo, o forro recebeu luminárias de LED e pendentes de bolas com plantas.</p>',
       id: 3,
       architect: 'Nikolas Mourão',
-      area: 78,
-      year: 2019,
+      area: 64,
+      year: 2020,
       sliderImgs: [
         {
           name: '01',
@@ -133,8 +133,8 @@ export default class ProjectsHelper {
       description: '<p>Um verdadeiro santuário de relaxamento, com materiais naturais como pedra e madeira proporcionam um equilíbrio minimalista e aconchegante, materiais brutos, que remetem ao natural, para recriar um habitat, onde essa diversidade do cotidiano ocorre livremente, inspirado pela natureza.</p><p>O jardim vertical no interior do banho traz um ar de refúgio e sensorial, contrastando com o urbano.</p>',
       id: 4,
       architect: 'Nikolas Mourão',
-      area: 78,
-      year: 2019,
+      area: 250,
+      year: 2015,
       sliderImgs: [
         {
           name: '01',

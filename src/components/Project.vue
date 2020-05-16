@@ -10,7 +10,17 @@
             <div class="project-description" v-html="selectedProject.description"/>
           </b-col>
           <b-col lg="6">
-            <div class="slider-container">
+            <div class="slider">
+              <div class="infos">
+                <div class="info">
+                  <div class="info-icon-area"> </div>
+                  <div class="info-description">{{ `Área: ${selectedProject.area}m²` }}</div>
+                </div>
+                <div class="info">
+                  <div class="info-icon-year"> </div>
+                  <div class="info-description">{{ `Ano: ${selectedProject.year}` }}</div>
+                </div>
+              </div>
               <Slider :items="selectedProject.sliderImgs" :slickOptions="slickOptions"/>
             </div>
           </b-col>
@@ -95,9 +105,35 @@ export default {
         margin: auto;
         margin-bottom: 2rem;
       }
-      .slider-container {
+      .slider {
         max-width: 600px;
         margin: auto;
+        .infos {
+          display: flex;
+          .info {
+            display: flex;
+            padding-bottom: .5rem;
+            padding-right: 1rem;
+            .info-icon-area {
+              width: 25px;
+              height: 25px;
+              background: url('../assets/icons/area.svg');
+              background-size: 25px 25px;
+              background-repeat: no-repeat;
+            }
+            .info-icon-year {
+              width: 25px;
+              height: 25px;
+              background: url('../assets/icons/year.svg');
+              background-size: 25px 25px;
+              background-repeat: no-repeat;
+            }
+            .info-description {
+              color: $light;
+              padding-left: .4rem;
+            }
+          }
+        }
       }
     }
     .button-wrap {

@@ -97,8 +97,10 @@ export default {
         this.sliderImgs = ProjectsHelper.sliderImgs1;
       } else if (this.selectedProject.id === 2) {
         this.sliderImgs = ProjectsHelper.sliderImgs2;
-      } else {
+      } else if (this.selectedProject.id === 3) {
         this.sliderImgs = ProjectsHelper.sliderImgs3;
+      } else {
+        this.sliderImgs = ProjectsHelper.sliderImgs4;
       }
       this.scrollToTop();
     },

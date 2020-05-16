@@ -22,9 +22,5 @@ export default class HomeHelper {
       name: 'image5',
       img: require('@/assets/images/home/slider/image5.jpg'),
     },
-    {
-      name: 'image6',
-      img: require('@/assets/images/home/slider/image6.jpg'),
-    },
   ];
 }

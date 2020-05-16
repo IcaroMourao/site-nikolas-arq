@@ -13,6 +13,7 @@
             <router-link
               active-class="current"
               :exact="true"
+              :class="{'current': isActive && item.name === 'Projetos'}"
               class="header-nav-link nav-link"
               :to="item.route"> {{ item.name }} </router-link>
           </b-nav-item>
@@ -34,18 +35,23 @@ export default {
         },
         {
           name: 'Sobre',
-          route: '/about',
+          route: '/sobre',
         },
         {
           name: 'Projetos',
-          route: '/projects',
+          route: '/projetos',
         },
         {
           name: 'Outros serviços',
-          route: '/another-services',
+          route: '/outros-servicos',
         },
       ],
     };
+  },
+  computed: {
+    isActive() {
+      return this.$route.name === 'project';
+    },
   },
 };
 </script>
@@ -87,7 +93,7 @@ export default {
       text-align: center;
       text-transform: uppercase;
       .header-nav-link {
-        color: $normal-text;
+        color: $light-gray;
         @media (min-width: map-get($grid-breakpoints, "lg")) {
           border-bottom: 3px solid transparent;
           height: 100%;
@@ -97,7 +103,7 @@ export default {
           transition: all 200ms ease;
           &.current,
           &:hover {
-            color: $normal-text;
+            color: $light;
             border-color: $comment;
           }
         }

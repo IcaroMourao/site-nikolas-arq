@@ -4,7 +4,7 @@ export default class HomeHelper {
   static items = [
     {
       name: 'image1',
-      img: require('@/assets/images/home/slider/image1.jpeg'),
+      img: require('@/assets/images/home/slider/image1.jpg'),
     },
     {
       name: 'image2',
@@ -20,10 +20,6 @@ export default class HomeHelper {
     },
     {
       name: 'image5',
-      img: require('@/assets/images/home/slider/image5.jpg'),
-    },
-    {
-      name: 'image6',
       img: require('@/assets/images/home/slider/image5.jpg'),
     },
   ];

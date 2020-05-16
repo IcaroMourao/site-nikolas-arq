@@ -34,15 +34,15 @@ export default {
         },
         {
           name: 'Sobre',
-          route: '/about',
+          route: '/sobre',
         },
         {
           name: 'Projetos',
-          route: '/projects',
+          route: '/projetos',
         },
         {
           name: 'Outros serviços',
-          route: '/another-services',
+          route: '/outros-servicos',
         },
       ],
     };

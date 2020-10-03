@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 
-export default class ProjectsHelper {
+export default class ProjectsItems {
   static projects = [
     {
       name: 'Cozinha Youtuber',

@@ -30,13 +30,13 @@
 </template>
 
 <script>
-import ProjectsHelper from '@/helpers/ProjectsHelper';
+import ProjectsItems from '@/items/ProjectsItems';
 
 export default {
   name: 'ProjectPicker',
   data() {
     return {
-      projects: ProjectsHelper.projects,
+      projects: ProjectsItems.projects,
     };
   },
   methods: {

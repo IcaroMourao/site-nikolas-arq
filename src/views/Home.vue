@@ -6,7 +6,7 @@
 
 <script>
 import Slider from '@/components/Slider.vue';
-import HomeHelper from '@/helpers/HomeHelper';
+import HomeItems from '@/items/HomeItems';
 
 export default {
   name: 'Home',
@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      items: HomeHelper.items,
+      items: HomeItems.items,
     };
   },
 };

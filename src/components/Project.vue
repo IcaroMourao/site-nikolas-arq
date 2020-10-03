@@ -40,7 +40,7 @@
 
 <script>
 import Slider from '@/components/Slider.vue';
-import ProjectsHelper from '@/helpers/ProjectsHelper';
+import ProjectsItems from '@/items/ProjectsItems';
 
 export default {
   name: 'Project',
@@ -50,7 +50,7 @@ export default {
   props: ['id'],
   data() {
     return {
-      projects: ProjectsHelper.projects,
+      projects: ProjectsItems.projects,
       selectedProject: undefined,
       sliderImgs: {},
       slickOptions: {

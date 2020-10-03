@@ -38,7 +38,6 @@
   </footer>
 </template>
 
-
 <style lang="scss" scoped>
 #footer {
   background-color: $background-header-footer;

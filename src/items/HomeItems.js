@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 
-export default class HomeHelper {
+export default class HomeItems {
   static items = [
     {
       name: 'image1',

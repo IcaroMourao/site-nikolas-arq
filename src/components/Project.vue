@@ -11,16 +11,20 @@
           </b-col>
           <b-col lg="6">
             <div class="slider">
-              <div class="infos">
-                <div class="info">
+              <b-row class="infos">
+                <b-col class="info" cols="6" sm="4">
                   <div class="info-icon-area"> </div>
                   <div class="info-description">{{ `Área: ${selectedProject.area}m²` }}</div>
-                </div>
-                <div class="info">
+                </b-col>
+                <b-col class="info" cols="6" sm="4">
                   <div class="info-icon-year"> </div>
                   <div class="info-description">{{ `Ano: ${selectedProject.year}` }}</div>
-                </div>
-              </div>
+                </b-col>
+                <b-col class="info" cols="12" sm="4">
+                  <div class="info-icon-local"> </div>
+                  <div class="info-description">{{ `Local: ${selectedProject.local}` }}</div>
+                </b-col>
+              </b-row>
               <Slider :items="selectedProject.sliderImgs" :slickOptions="slickOptions"/>
             </div>
           </b-col>
@@ -125,6 +129,13 @@ export default {
               width: 25px;
               height: 25px;
               background: url('../assets/icons/year.svg');
+              background-size: 25px 25px;
+              background-repeat: no-repeat;
+            }
+            .info-icon-local {
+              width: 25px;
+              height: 25px;
+              background: url('../assets/icons/localization.svg');
               background-size: 25px 25px;
               background-repeat: no-repeat;
             }

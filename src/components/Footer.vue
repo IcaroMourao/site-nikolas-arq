@@ -8,11 +8,10 @@
       </b-col>
       <b-col cols="12" md="4">
         <div class="footer-info">
-          <a class="footer-personal">Nikolas Mourão</a>
-          <a class="footer-personal">Brasilia/DF</a>
-          <a class="footer-personal">(61) 99439-6832</a>
+          <p class="footer-personal">Nikolas Mourão</p>
+          <p class="footer-personal">Brasilia/DF</p>
+          <p class="footer-personal">(61) 99439-6832</p>
           <a
-            class="footer-personal"
             href="mailto:nikolasmouraoarquiteto@gmail.com">
               nikolasmouraoarquiteto@gmail.com
           </a>
@@ -57,6 +56,11 @@
     display: grid;
     justify-content: center;
     padding-bottom: 1.5rem;
+    color: $normal-text;
+    p {
+      margin: 0;
+      display: block;
+    }
     a {
       display: block;
       color: $normal-text;

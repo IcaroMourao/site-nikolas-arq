@@ -4,6 +4,9 @@
     <transition name="fade" mode="out-in">
       <router-view id="content"/>
     </transition>
+    <div class="whats-app-button" @click="wappAction">
+      <div class="whats-app-icon" />
+    </div>
     <Footer/>
   </div>
 </template>
@@ -18,6 +21,11 @@ export default {
     Header,
     Footer,
   },
+  methods: {
+    wappAction() {
+      window.open('https://whats.link/nmarquiteto', '_blank');
+    },
+  },
 };
 </script>
 
@@ -30,6 +38,30 @@ export default {
   width: 100%;
   height: 100%;
   background-color: $app-background;
+  .whats-app-button {
+    position: fixed;
+    right: 15px;
+    bottom: 25px;
+    height: 70px;
+    width: 70px;
+    background-color: $light;
+    border-radius: 100%;
+    z-index: 999;
+    box-shadow: 0px 6px 6px 0px rgba(0,0,0,.16);
+    .whats-app-icon {
+      position: absolute;
+      left: calc(50% - 15px);
+      top: calc(50% - 15px);
+      width: 30px;
+      height: 30px;
+      background: url('assets/icons/whatsapp.svg');
+      background-size: 30px 30px;
+      background-repeat: no-repeat;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 #content {

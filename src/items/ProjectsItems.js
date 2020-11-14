@@ -11,6 +11,7 @@ export default class ProjectsItems {
       architect: 'Nikolas Mourão',
       area: '24,5',
       year: 2020,
+      local: 'Brasília/DF',
       sliderImgs: [
         {
           name: '01',
@@ -43,6 +44,7 @@ export default class ProjectsItems {
       architect: 'Nikolas Mourão',
       area: '38,5',
       year: 2020,
+      local: 'Brasília/DF',
       sliderImgs: [
         {
           name: '01',
@@ -83,6 +85,7 @@ export default class ProjectsItems {
       architect: 'Nikolas Mourão',
       area: '45',
       year: 2020,
+      local: 'Brasília/DF',
       sliderImgs: [
         {
           name: '01',
@@ -135,6 +138,7 @@ export default class ProjectsItems {
       architect: 'Nikolas Mourão',
       area: '15,35',
       year: 2020,
+      local: 'Brasília/DF',
       sliderImgs: [
         {
           name: '01',
@@ -167,6 +171,7 @@ export default class ProjectsItems {
       architect: 'Nikolas Mourão',
       area: '19,20',
       year: 2020,
+      local: 'Fortaleza/CE',
       sliderImgs: [
         {
           name: '01',

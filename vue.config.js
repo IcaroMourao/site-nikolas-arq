@@ -7,6 +7,7 @@ module.exports = {
           @import "~bootstrap/scss/_functions.scss";
           @import "~bootstrap/scss/_variables.scss";
           @import "src/global/scss/custom-variables.scss";
+          @import "src/global/scss/extends.scss";
         `,
       },
     },

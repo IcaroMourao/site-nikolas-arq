@@ -62,14 +62,14 @@ export default {
     display: grid;
     justify-content: center;
     padding-bottom: 1.5rem;
-    color: $normal-text;
+    color: $light;
     p {
       margin: 0;
       display: block;
     }
     a {
       display: block;
-      color: $normal-text;
+      color: $light;
     }
   }
   .social-group {

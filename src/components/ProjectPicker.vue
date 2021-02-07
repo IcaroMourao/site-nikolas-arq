@@ -2,7 +2,7 @@
   <div class="project-picker-container">
     <div class="project-picker">
       <div class="projects-header">
-        <h1> Projetos </h1>
+        <h1 class="title"> Projetos </h1>
       </div>
       <div class="projects-body">
         <div
@@ -10,18 +10,18 @@
           v-for="(project, index) in projects"
           :key="index">
           <img
-          @click="handlerLicense(project)"
-          @mouseover="project.showName = true"
-          @mouseout="project.showName = false"
-          :class="{'img-hover': project.showName}"
-          :src="getProjectImage(project)"
-          :alt="project.name">
+            @click="handlerLicense(project)"
+            @mouseover="project.showName = true"
+            @mouseout="project.showName = false"
+            :class="{'img-hover': project.showName}"
+            :src="getProjectImage(project)"
+            :alt="project.name">
           <p
-          @click="handlerLicense(project)"
-          @mouseover="project.showName = true"
-          @mouseout="project.showName = false"
-          v-show="project.showName" class="projects-item-text">
-            {{ project.name }}
+            @click="handlerLicense(project)"
+            @mouseover="project.showName = true"
+            @mouseout="project.showName = false"
+            v-show="project.showName" class="projects-item-text">
+              {{ project.name }}
           </p>
         </div>
       </div>
@@ -65,11 +65,7 @@ export default {
 <style lang="scss" scoped>
 .project-picker-container {
   .projects-header {
-    text-align: center;
     margin-bottom: 4rem;
-    h1 {
-      color: $light;
-    }
   }
   .projects-body {
     display: flex;
@@ -78,7 +74,9 @@ export default {
     .projects-item {
       position: relative;
       text-align: center;
-      color: $light;
+      color: $current;
+      background-color: $app-background;
+      font-weight: bold;
       img {
         max-width: 280px;
         margin: 1rem;

@@ -2,7 +2,7 @@
   <div class="project-container">
     <div class="project-content" v-if="projects">
       <div class="project-header">
-        <h1> {{ selectedProject.name }} </h1>
+        <h1 class="title"> {{ selectedProject.name }} </h1>
       </div>
       <div class="project-body">
         <b-row>
@@ -97,14 +97,11 @@ export default {
     .project-header {
       text-align: center;
       margin-bottom: 4rem;
-      h1 {
-        color: $light;
-      }
     }
     .project-body {
       .project-description {
         max-width: 420px;
-        color: $light;
+        color: $normal-text;
         text-align: justify;
         margin: auto;
         margin-bottom: 2rem;
@@ -140,7 +137,7 @@ export default {
               background-repeat: no-repeat;
             }
             .info-description {
-              color: $light;
+              color: $normal-text;
               padding-left: .4rem;
             }
           }

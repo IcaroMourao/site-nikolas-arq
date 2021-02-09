@@ -20,8 +20,8 @@
               com acabamento de filetes metalizados e no piso, além das lâminas de madeira, as
               paredes também foram revestidas com ripas de madeiras claras.
             </p>
-            <div @click="goTo(3)" class="arrow-div">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" style="transform:rotate(180deg);" class="arrow"><path fill-rule="evenodd" d="M7.5 15L0 7.5 7.5 0l1.325 1.325-5.232 5.254H15v1.842H3.593l5.232 5.254z"></path></svg>
+            <div @click="goTo(3)" class="see-more">
+              Ver mais...
             </div>
           </div>
           <div class="project-image image-one">
@@ -37,8 +37,8 @@
               Um verdadeiro santuário de relaxamento, com materiais naturais como pedra e madeira
               proporcionam um equilíbrio minimalista e aconchegante.
             </p>
-            <div @click="goTo(4)" class="arrow-div">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" style="transform:rotate(180deg);" class="arrow"><path fill-rule="evenodd" d="M7.5 15L0 7.5 7.5 0l1.325 1.325-5.232 5.254H15v1.842H3.593l5.232 5.254z"></path></svg>
+            <div @click="goTo(4)" class="see-more">
+              Ver mais...
             </div>
           </div>
           <div class="project-image image-two">
@@ -55,8 +55,8 @@
               apartamentos. Assim como os home offices que estão cada vez mais comuns devido a
               tecnologia e a diversos trabalhos que dependem dela.
             </p>
-            <div @click="goTo(2)" class="arrow-div">
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" style="transform:rotate(180deg);" class="arrow"><path fill-rule="evenodd" d="M7.5 15L0 7.5 7.5 0l1.325 1.325-5.232 5.254H15v1.842H3.593l5.232 5.254z"></path></svg>
+            <div @click="goTo(2)" class="see-more">
+              Ver mais...
             </div>
           </div>
           <div class="project-image image-three">
@@ -91,18 +91,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@keyframes arrow-shake {
-  0% {
-    transform: translate(0%) rotate(180deg);
-  }
-  50% {
-    transform: translate(20px) rotate(180deg);
-  }
-  100% {
-    transform: translate(0%) rotate(180deg);
-  }
-}
-
 .home-container {
   .home-banner {
     width: 100%;
@@ -177,18 +165,11 @@ export default {
         h3 {
           font-size: 1rem;
         }
-        &:hover .arrow {
-          animation-name: arrow-shake;
-          animation-duration: 1.25s;
-          animation-iteration-count: infinite;
-          animation-timing-function: ease;
-        }
-        .arrow-div {
-          width: fit-content;
+        .see-more {
           cursor: pointer;
-          .arrow {
-            height: 18px;
-            width: 18px;
+          text-align: right;
+          &:hover {
+            text-decoration: underline;
           }
         }
       }

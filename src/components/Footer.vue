@@ -145,7 +145,7 @@ export default {
     padding-bottom: .2rem;
   }
   .footer-copyright {
-    color: $normal-text;
+    color: $light;
     padding-right: 2rem;
     font-size: .875rem;
     &:hover {

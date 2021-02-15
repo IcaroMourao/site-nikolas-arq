@@ -71,16 +71,9 @@
 </template>
 
 <script>
-import HomeItems from '@/items/HomeItems';
-
 export default {
   name: 'Home',
   components: {
-  },
-  data() {
-    return {
-      items: HomeItems.items,
-    };
   },
   methods: {
     goTo(projectId) {

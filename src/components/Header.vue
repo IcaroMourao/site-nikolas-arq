@@ -12,8 +12,7 @@
           <b-nav-item class="header-nav-item" v-for="(item, index) in menu" :key="index">
             <router-link
               active-class="current"
-              :exact="true"
-              :class="{'current': isActive && item.name === 'Projetos'}"
+              :exact="item.route === '/'"
               class="header-nav-link nav-link"
               :to="item.route"> {{ item.name }} </router-link>
           </b-nav-item>
@@ -32,26 +31,25 @@ export default {
         {
           name: 'Inicio',
           route: '/',
+          routeName: 'home',
         },
         {
           name: 'Sobre',
           route: '/sobre',
+          routeName: 'about',
         },
         {
           name: 'Projetos',
           route: '/projetos',
+          routeName: 'projects',
         },
         {
           name: 'Outros serviços',
           route: '/outros-servicos',
+          routeName: '',
         },
       ],
     };
-  },
-  computed: {
-    isActive() {
-      return this.$route.name === 'project';
-    },
   },
 };
 </script>

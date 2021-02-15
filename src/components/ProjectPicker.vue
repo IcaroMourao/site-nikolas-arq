@@ -49,14 +49,6 @@ export default {
       project.showName = false;
       const projectId = project.id;
       this.$router.push({ path: `projetos/${projectId}` });
-      this.scrollToTop();
-    },
-    scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      });
     },
   },
 };

@@ -9,3 +9,129 @@
   padding: 2rem;
   padding-bottom: 6rem;
 }
+
+.social-group {
+  display: flex;
+  margin: auto;
+  padding-bottom: 1.5rem;
+  .facebook-img {
+    width: 48px;
+    height: 48px;
+    background: url('~@/assets/icons/facebook.svg');
+    background-size: 48px 48px;
+    background-repeat: no-repeat;
+    &:hover {
+      width: 48px;
+      height: 48px;
+      background: url('~@/assets/icons/facebook-hover.svg');
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+    }
+  }
+  .instagram-img {
+    margin-left: 1rem;
+    width: 48px;
+    height: 48px;
+    background: url('~@/assets/icons/instagram.svg');
+    background-size: 48px 48px;
+    background-repeat: no-repeat;
+    &:hover {
+      margin-left: 1rem;
+      width: 48px;
+      height: 48px;
+      background: url('~@/assets/icons/instagram-hover.svg');
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+    }
+  }
+  .linkedin-img {
+    margin-left: 1rem;
+    width: 48px;
+    height: 48px;
+    background: url('~@/assets/icons/linkedin.svg');
+    background-size: 48px 48px;
+    background-repeat: no-repeat;
+    &:hover {
+      margin-left: 1rem;
+      width: 48px;
+      height: 48px;
+      background: url('~@/assets/icons/linkedin-hover.svg');
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+    }
+  }
+  .pinterest-img {
+    margin-left: 1rem;
+    width: 48px;
+    height: 48px;
+    background: url('~@/assets/icons/pinterest.svg');
+    background-size: 48px 48px;
+    background-repeat: no-repeat;
+    &:hover {
+      margin-left: 1rem;
+      width: 48px;
+      height: 48px;
+      background: url('~@/assets/icons/pinterest-hover.svg');
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.about-social-group {
+  display: flex;
+  padding-bottom: 1rem;
+  .facebook-img {
+    width: 26px;
+    height: 26px;
+    background: url('~@/assets/icons/only-f-facebook.svg');
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .instagram-img {
+    margin-left: 2rem;
+    width: 26px;
+    height: 26px;
+    background: url('~@/assets/icons/only-instagram.svg');
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .pinterest-img {
+    margin-left: 2rem;
+    width: 26px;
+    height: 26px;
+    background: url('~@/assets/icons/only-pinterest.svg');
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .tumblr-img {
+    margin-left: 2rem;
+    width: 26px;
+    height: 26px;
+    background: url('~@/assets/icons/only-tumblr.svg');
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .linkedin-img {
+    margin-left: 2rem;
+    width: 26px;
+    height: 26px;
+    background: url('~@/assets/icons/only-linkedin.svg');
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .github-img {
+    margin-left: 2rem;
+    width: 26px;
+    height: 26px;
+    background: url('~@/assets/icons/github.svg');
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+}

@@ -11,8 +11,7 @@
           <p class="footer-personal">Nikolas Mourão</p>
           <p class="footer-personal">Brasilia/DF</p>
           <p class="footer-personal">(61) 99439-6832</p>
-          <a
-            href="mailto:nikolasmouraoarquiteto@gmail.com">
+          <a href="mailto:nikolasmouraoarquiteto@gmail.com">
               nikolasmouraoarquiteto@gmail.com
           </a>
         </div>
@@ -70,6 +69,73 @@ export default {
     a {
       display: block;
       color: $light;
+    }
+  }
+  .social-group {
+    display: flex;
+    margin: auto;
+    padding-bottom: 1.5rem;
+    .facebook-img {
+      width: 48px;
+      height: 48px;
+      background: url('~@/assets/icons/footer/facebook.svg');
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+      &:hover {
+        width: 48px;
+        height: 48px;
+        background: url('~@/assets/icons/footer/facebook-hover.svg');
+        background-size: 48px 48px;
+        background-repeat: no-repeat;
+      }
+    }
+    .instagram-img {
+      margin-left: 1rem;
+      width: 48px;
+      height: 48px;
+      background: url('~@/assets/icons/footer/instagram.svg');
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+      &:hover {
+        margin-left: 1rem;
+        width: 48px;
+        height: 48px;
+        background: url('~@/assets/icons/footer/instagram-hover.svg');
+        background-size: 48px 48px;
+        background-repeat: no-repeat;
+      }
+    }
+    .linkedin-img {
+      margin-left: 1rem;
+      width: 48px;
+      height: 48px;
+      background: url('~@/assets/icons/footer/linkedin.svg');
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+      &:hover {
+        margin-left: 1rem;
+        width: 48px;
+        height: 48px;
+        background: url('~@/assets/icons/footer/linkedin-hover.svg');
+        background-size: 48px 48px;
+        background-repeat: no-repeat;
+      }
+    }
+    .pinterest-img {
+      margin-left: 1rem;
+      width: 48px;
+      height: 48px;
+      background: url('~@/assets/icons/footer/pinterest.svg');
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+      &:hover {
+        margin-left: 1rem;
+        width: 48px;
+        height: 48px;
+        background: url('~@/assets/icons/footer/pinterest-hover.svg');
+        background-size: 48px 48px;
+        background-repeat: no-repeat;
+      }
     }
   }
   .footer-copyright-col {

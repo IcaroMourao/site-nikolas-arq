@@ -22,20 +22,18 @@
           target="_blank"/>
       </div>
 
-      <div key="project-link" v-if="link">
-        <div class="info-container">
-          <div class="info">{{ link }}</div>
-          <div
-            id="project-link"
-            @click="copyToClipboard(link)"
-            class="copy-area">
-              <div class="copy-icon"/>
-          </div>
+      <div class="info-container">
+        <div class="info">{{ link }}</div>
+        <div
+          id="project-link"
+          @click="copyToClipboard(link)"
+          class="copy-area">
+            <div class="copy-icon"/>
         </div>
       </div>
     </div>
 
-    <b-tooltip target="project-link" triggers="click">
+    <b-tooltip :disabled.sync="disabled" target="project-link">
       Copiado
     </b-tooltip>
   </b-modal>
@@ -52,6 +50,7 @@ export default {
   },
   data() {
     return {
+      disabled: true,
     };
   },
   computed: {
@@ -64,10 +63,15 @@ export default {
   },
   methods: {
     copyToClipboard(data) {
-      navigator.clipboard.writeText(data);
-      setTimeout(() => {
-        this.$root.$emit('bv::hide::tooltip', 'project-link');
-      }, 1000);
+      try {
+        navigator.clipboard.writeText(data);
+        this.$root.$emit('bv::show::tooltip', 'project-link');
+        setTimeout(() => {
+          this.$root.$emit('bv::hide::tooltip', 'project-link');
+        }, 1000);
+      } catch (err) {
+        // do nothing
+      }
     },
   },
 };
@@ -121,6 +125,7 @@ export default {
       padding-right: 1.5rem;
       max-width: calc(100% - 120px);
       overflow: hidden;
+      white-space: nowrap;
     }
     .copy-area {
       white-space: nowrap;

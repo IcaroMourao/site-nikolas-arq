@@ -99,6 +99,63 @@ export default {
         color: $normal-text;
         flex: 2;
       }
+      .about-social-group {
+        display: flex;
+        padding-bottom: 1rem;
+        .facebook-img {
+          width: 26px;
+          height: 26px;
+          background: url('~@/assets/icons/professional/facebook.svg');
+          background-size: 26px 26px;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+        .instagram-img {
+          margin-left: 2rem;
+          width: 26px;
+          height: 26px;
+          background: url('~@/assets/icons/professional/instagram.svg');
+          background-size: 26px 26px;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+        .pinterest-img {
+          margin-left: 2rem;
+          width: 26px;
+          height: 26px;
+          background: url('~@/assets/icons/professional/pinterest.svg');
+          background-size: 26px 26px;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+        .tumblr-img {
+          margin-left: 2rem;
+          width: 26px;
+          height: 26px;
+          background: url('~@/assets/icons/professional/tumblr.svg');
+          background-size: 26px 26px;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+        .linkedin-img {
+          margin-left: 2rem;
+          width: 26px;
+          height: 26px;
+          background: url('~@/assets/icons/professional/linkedin.svg');
+          background-size: 26px 26px;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+        .github-img {
+          margin-left: 2rem;
+          width: 26px;
+          height: 26px;
+          background: url('~@/assets/icons/professional/github.svg');
+          background-size: 26px 26px;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+      }
     }
   }
   .back-button {

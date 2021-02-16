@@ -10,40 +10,61 @@
           v-for="(project, index) in projects"
           :key="index">
           <img
-            @click="handlerLicense(project)"
+            @click="selectProject(project)"
             class="project-image" :src="getProjectImage(project)"
             :alt="project.name">
-          <p @click="handlerLicense(project)" class="projects-item-text">
+          <p
+            @click="selectProject(project)"
+            class="projects-item-text">
             {{ project.name }}
           </p>
-          <div class="heart-icon" />
-          <div class="share-icon" />
+          <div
+            @click="setLike(project)"
+            :class="{'heart-icon-hover': project.liked, 'heart-icon': !project.liked}" />
+          <div @click="openShareModal(project)" class="share-icon" />
         </div>
       </div>
     </div>
+    <ShareModal :project="shareProject"/>
   </div>
 </template>
 
 <script>
 import ProjectsItems from '@/items/ProjectsItems';
+import ShareModal from '@/components/ShareModal.vue';
 
 export default {
   name: 'ProjectPicker',
+  components: {
+    ShareModal,
+  },
   data() {
     return {
       projects: ProjectsItems.projects,
+      shareProject: {},
     };
   },
   methods: {
     getProjectImage(project) {
       return project.img;
     },
-    handlerLicense(project) {
+    selectProject(project) {
       this.selectedProject = project;
       // eslint-disable-next-line no-param-reassign
       project.showName = false;
       const projectId = project.id;
       this.$router.push({ path: `projetos/${projectId}` });
+    },
+    setLike(likedProject) {
+      this.projects.forEach((project, index) => {
+        if (project.id === likedProject.id) {
+          this.projects[index].liked = true;
+        }
+      });
+    },
+    openShareModal(project) {
+      this.shareProject = project;
+      this.$bvModal.show('share-modal');
     },
   },
 };
@@ -116,6 +137,17 @@ export default {
             background-repeat: no-repeat;
           }
         }
+        & > .heart-icon-hover {
+          display: block;
+          position: absolute;
+          bottom: 35px;
+          left: 35px;
+          width: 24px;
+          height: 24px;
+          background: url('~@/assets/icons/heart-hover.svg');
+          background-size: 24px 24px;
+          background-repeat: no-repeat;
+        }
       }
       .project-image {
         max-width: 100%;
@@ -131,7 +163,7 @@ export default {
       .heart-icon {
         display: none;
       }
-      .heart-icon {
+      .heart-icon-hover {
         display: none;
       }
       .share-icon {

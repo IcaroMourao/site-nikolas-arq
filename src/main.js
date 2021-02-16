@@ -6,7 +6,8 @@ import App from './App.vue';
 
 Vue.config.productionTip = false;
 
-Vue.use(BootstrapVue, Slick);
+Vue.use(BootstrapVue);
+Vue.use(Slick);
 
 new Vue({
   router,

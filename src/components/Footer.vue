@@ -1,6 +1,6 @@
 <template>
   <footer id="footer">
-    <b-row>
+    <b-row class="app-container">
       <b-col cols="12 text-center" md="4">
         <router-link class="footer-logo" to="/" title="Nikolas Mourão">
           <img src="../assets/images/name.png" alt="Nikolas Mourão">

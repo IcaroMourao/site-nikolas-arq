@@ -5,7 +5,11 @@
 
 .app-container {
   max-width: 1200px;
+  margin: auto !important;
+}
+
+.page-content {
+  max-width: 1200px;
   margin: auto;
-  padding: 2rem;
-  padding-bottom: 6rem;
+  padding: 3rem 2rem;
 }

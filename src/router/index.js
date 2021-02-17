@@ -1,12 +1,19 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
 import Home from '@/views/Home.vue';
-import About from '@/views/About.vue';
-import Projects from '@/views/Projects.vue';
-import ProjectPicker from '@/components/ProjectPicker.vue';
-import Project from '@/components/Project.vue';
-import Professionals from '@/components/Professionals.vue';
-import ProfessionalDescription from '@/components/ProfessionalDescription.vue';
+
+import About from '@/views/about/About.vue';
+import Professionals from '@/views/about/Professionals.vue';
+import ProfessionalDescription from '@/views/about/ProfessionalDescription.vue';
+
+import Projects from '@/views/projects/Projects.vue';
+import ProjectPicker from '@/views/projects/ProjectPicker.vue';
+import Project from '@/views/projects/Project.vue';
+
+import AnotherServices from '@/views/another-services/AnotherServices.vue';
+import Services from '@/views/another-services/Services.vue';
+import Contact from '@/views/another-services/Contact.vue';
 
 Vue.use(VueRouter);
 
@@ -58,6 +65,29 @@ const routes = [
         path: ':id',
         name: 'project',
         component: Project,
+        props: true,
+        meta: {
+          scrollToTop: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/outros-servicos',
+    component: AnotherServices,
+    children: [
+      {
+        path: '',
+        name: 'services',
+        component: Services,
+        meta: {
+          scrollToTop: true,
+        },
+      },
+      {
+        path: '/contact',
+        name: 'contact',
+        component: Contact,
         props: true,
         meta: {
           scrollToTop: true,

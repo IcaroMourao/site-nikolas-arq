@@ -1,5 +1,5 @@
 <template>
-  <div class="project-picker-container">
+  <div class="project-picker-container page-content">
     <div class="project-picker">
       <div class="projects-header">
         <h1 class="title"> Projetos </h1>

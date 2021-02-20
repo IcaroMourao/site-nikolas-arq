@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-    <b-navbar type="dark" variant="dark" class="header-navbar" toggleable="lg">
+    <b-navbar type="dark" variant="dark" class="header-navbar app-container" toggleable="lg">
       <b-navbar-brand href="#" class="header-brand">
         <router-link to="/" title="Nikolas Mourão">
           <img src="../assets/images/name.png" alt="Nikolas Mourão">
@@ -62,6 +62,7 @@ export default {
   left: 0;
   z-index: 1000;
   height: 60px;
+  background-color: $background-header-footer;
   @media (min-width: map-get($grid-breakpoints, "xl")) {
     height: 80px;
   }

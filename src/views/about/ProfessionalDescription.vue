@@ -1,5 +1,5 @@
 <template>
-  <div class="professional-description-container app-container">
+  <div class="professional-description-container page-content">
     <b-row>
       <b-col class="image-col" md="4" >
         <div class="">

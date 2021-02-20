@@ -1,5 +1,5 @@
 <template>
-  <div class="professionals-container app-container">
+  <div class="professionals-container page-content">
     <div class="projects-header">
       <h1 class="title">Nossa equipe</h1>
     </div>

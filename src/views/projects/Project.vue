@@ -1,5 +1,5 @@
 <template>
-  <div class="project-container">
+  <div class="project-container page-content">
     <div class="project-content" v-if="projects">
       <div class="project-header">
         <h1 class="title"> {{ selectedProject.name }} </h1>
@@ -110,21 +110,21 @@ export default {
             .info-icon-area {
               width: 25px;
               height: 25px;
-              background: url('../assets/icons/area.svg');
+              background: url('~@/assets/icons/area.svg');
               background-size: 25px 25px;
               background-repeat: no-repeat;
             }
             .info-icon-year {
               width: 25px;
               height: 25px;
-              background: url('../assets/icons/year.svg');
+              background: url('~@/assets/icons/year.svg');
               background-size: 25px 25px;
               background-repeat: no-repeat;
             }
             .info-icon-local {
               width: 25px;
               height: 25px;
-              background: url('../assets/icons/localization.svg');
+              background: url('~@/assets/icons/localization.svg');
               background-size: 25px 25px;
               background-repeat: no-repeat;
             }

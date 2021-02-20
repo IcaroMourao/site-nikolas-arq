@@ -7,7 +7,7 @@
         </video>
       </div>
     </div>
-    <div class="app-container">
+    <div class="page-content">
       <div class="home-projects-featured-title">
         <h1 class="title"> Projetos em destaque </h1>
       </div>

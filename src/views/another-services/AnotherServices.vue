@@ -1,5 +1,5 @@
 <template>
-  <div class="another-services-container app-container">
+  <div class="another-services-container">
     <transition name="fade" mode="out-in">
       <router-view />
     </transition>

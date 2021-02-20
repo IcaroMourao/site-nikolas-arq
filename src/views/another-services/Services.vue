@@ -19,7 +19,7 @@
           <router-link
             class="service-link"
             to="/outros-servicos/contato">
-              Contate-me >
+              Contate-nos >
           </router-link>
         </div>
       </div>
@@ -46,40 +46,40 @@ export default {
   .services-header {
     margin-bottom: 4rem;
   }
-}
-.services-items {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  .services-item {
-    max-width: 300px;
-    &:hover {
-      box-shadow: 0px 10px 10px 0px rgba(0,0,0,.16);
-    }
-    .service-image {
-      img {
-        width: 300px;
-        height: 226px;
+  .services-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .services-item {
+      max-width: 300px;
+      &:hover {
+        box-shadow: 0px 10px 10px 0px rgba(0,0,0,.16);
       }
-    }
-    .service-description {
-      background-color: $white-ice;
-      height: 370px;
-      padding: 1.5rem;
-      .service-title {
-        color: $current;
-        font-size: 22px;
-        font-weight: bold;
+      .service-image {
+        img {
+          width: 300px;
+          height: 226px;
+        }
       }
-      .service-body {
-        color: $normal-text;
-        font-size: 15px;
-        padding-bottom: .5rem;
-      }
-      .service-link-wrapper {
-        text-align: center;
-        .service-link {
+      .service-description {
+        background-color: $white-ice;
+        height: 370px;
+        padding: 1.5rem;
+        .service-title {
           color: $current;
+          font-size: 22px;
+          font-weight: bold;
+        }
+        .service-body {
+          color: $normal-text;
+          font-size: 15px;
+          padding-bottom: .5rem;
+        }
+        .service-link-wrapper {
+          text-align: center;
+          .service-link {
+            color: $current;
+          }
         }
       }
     }

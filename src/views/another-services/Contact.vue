@@ -39,7 +39,7 @@
                 type="outline"
                 :expanded="true"
                 :uppercase="true"
-                :link="{ path: '/outros-servicos', append: true}"/>
+                :link="{ path: '/outros-servicos', append: true }"/>
             </b-col>
             <b-col cols="12" md="6" class="pl-2">
               <Button

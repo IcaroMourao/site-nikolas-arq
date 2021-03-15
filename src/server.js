@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 const configs = {
-  path: 'dist',
+  path: '../dist',
   https: true,
   port: process.env.PORT || 3000,
 };

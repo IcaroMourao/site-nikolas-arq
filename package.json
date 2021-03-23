@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prestart": "npm install @vue/cli",
+    "prestart": "npm install",
+    "postinstall": "npm run build -prod",
     "serve": "vue-cli-service serve",
     "start": "node src/server.js",
     "build": "vue-cli-service build",

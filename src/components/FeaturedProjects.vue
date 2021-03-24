@@ -1,48 +1,40 @@
 <template>
-<div class="services-container page-content overflow-hidden">
-  <div class="services-header">
-    <h1 class="title">Outros Serviços</h1>
-  </div>
-  <div class="services-items">
-    <Slick :options="slickOptions" class="inner-services-slider">
-      <div
-        class="services-box-slick-container"
-        v-for="(service, index) in services"
-        :key="index">
-        <div class="services-item">
-          <div class="service-image">
-            <img :src="service.image" alt="service">
-          </div>
-          <div class="service-description">
-            <p class="service-title">{{ service.title }}</p>
-            <p class="service-body">{{ service.description }}</p>
-            <div class="service-link-wrapper">
-              <router-link
-                class="service-link"
-                to="/outros-servicos/contato">
-                  Contate-nos >
-              </router-link>
-            </div>
-          </div>
+  <div class="projects-featured-container">
+    <div class="projects-featured">
+      <FeaturedProjectItem
+        v-for="(project, index) in featuredProjects" :key="index"
+        :project="project"
+        :index="index" />
+    </div>
+    <div class="projects-featured-mobile overflow-hidden">
+      <Slick :options="slickOptions" class="inner-projects-slider">
+        <div
+          class="project-box-slick-container"
+          v-for="(project, index) in featuredProjects"
+          :key="index">
+          <FeaturedProjectItem
+            :project="project"
+            :index="index" />
         </div>
-      </div>
-    </Slick>
+      </Slick>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
-import ServiceItems from '@/items/ServiceItems';
+import ProjectsItems from '@/items/ProjectsItems';
+import FeaturedProjectItem from '@/components/FeaturedProjectItem.vue';
 import Slick from 'vue-slick';
 
 export default {
-  name: 'Services',
+  name: 'FeaturedProjects',
   components: {
+    FeaturedProjectItem,
     Slick,
   },
   data() {
     return {
-      services: ServiceItems.services,
+      featuredProjects: [],
       slickOptions: {
         prevArrow: false,
         nextArrow: false,
@@ -70,22 +62,41 @@ export default {
       },
     };
   },
+  created() {
+    const projectsId = ['office-in-house', 'suite-rotang', 'santuario-natural'];
+    const projectsFiltered = ProjectsItems.projects
+      .filter((project) => projectsId.includes(project.id));
+    this.featuredProjects = projectsFiltered.map((project) => ({
+      id: project.id,
+      name: project.name,
+      img: project.img,
+      description: project.shortDescription,
+    }));
+  },
 };
 </script>
 
 <style lang="scss">
 @import "~@/../node_modules/slick-carousel/slick/slick.css";
 
-.services-container {
-  .services-header {
-    margin-bottom: 4rem;
+.projects-featured-container {
+  .projects-featured {
+    display: none;
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
   }
-  .services-items {
+  .projects-featured-mobile {
     display: flex;
     justify-content: center;
     padding-top: 1rem;
     padding-bottom: 70px;
-    .services-box-slick-container {
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+      display: none;
+    }
+    .project-box-slick-container {
       max-width: 1600px;
       margin-left: 1rem;
       margin-right: 1rem;
@@ -132,42 +143,6 @@ export default {
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-    }
-    .slick-slide {
-      margin-bottom: 1rem;
-    }
-    .services-item {
-      max-width: 300px;
-      &:hover {
-        box-shadow: 0px 10px 10px 0px rgba(0,0,0,.16);
-      }
-      .service-image {
-        img {
-          width: 300px;
-          height: 226px;
-        }
-      }
-      .service-description {
-        background-color: $white-ice;
-        height: 370px;
-        padding: 1.5rem;
-        .service-title {
-          color: $current;
-          font-size: 22px;
-          font-weight: bold;
-        }
-        .service-body {
-          color: $normal-text;
-          font-size: 15px;
-          padding-bottom: .5rem;
-        }
-        .service-link-wrapper {
-          text-align: center;
-          .service-link {
-            color: $current;
-          }
-        }
-      }
     }
   }
 }

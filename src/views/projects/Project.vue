@@ -6,8 +6,10 @@
       </div>
       <div class="project-body">
         <b-row>
-          <b-col cols="6"></b-col>
-          <b-col cols="6">
+          <b-col class="description-col" sm="12" lg="6">
+            <div class="project-description" v-html="selectedProject.description"/>
+          </b-col>
+          <b-col sm="12" lg="6">
             <div class="infos">
               <div class="info">
                 <div class="info-icon-area"> </div>
@@ -22,13 +24,6 @@
                 <div class="info-description">{{ `Local: ${selectedProject.local}` }}</div>
               </div>
             </div>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col class="description-col" lg="6">
-            <div class="project-description" v-html="selectedProject.description"/>
-          </b-col>
-          <b-col lg="6">
             <div class="slider">
               <Slider :items="selectedProject.sliderImgs" :slickOptions="slickOptions"/>
             </div>
@@ -70,7 +65,7 @@ export default {
     };
   },
   created() {
-    this.selectedProject = this.projects[this.id - 1];
+    this.selectedProject = this.projects.find((project) => project.id === this.id);
   },
   methods: {
     backToProjects() {
@@ -85,36 +80,57 @@ export default {
   .project-content {
     .project-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 1rem;
+      @media (min-width: map-get($grid-breakpoints, "lg")) {
+        margin-bottom: 4rem;
+      }
     }
     .project-body {
       .infos {
         display: flex;
         justify-content: space-between;
+        max-width: 600px;
+        margin: auto;
         .info {
           display: flex;
+          flex-wrap: wrap;
           padding-bottom: .5rem;
           padding-right: 1rem;
           .info-icon-area {
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             background: url('~@/assets/icons/area.svg');
-            background-size: 25px 25px;
+            background-size: 20px 20px;
             background-repeat: no-repeat;
+            @media (min-width: map-get($grid-breakpoints, "lg")) {
+              width: 25px;
+              height: 25px;
+              background-size: 25px 25px;
+            }
           }
           .info-icon-year {
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             background: url('~@/assets/icons/year.svg');
-            background-size: 25px 25px;
+            background-size: 20px 20px;
             background-repeat: no-repeat;
+            @media (min-width: map-get($grid-breakpoints, "lg")) {
+              width: 25px;
+              height: 25px;
+              background-size: 25px 25px;
+            }
           }
           .info-icon-local {
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             background: url('~@/assets/icons/localization.svg');
-            background-size: 25px 25px;
+            background-size: 20px 20px;
             background-repeat: no-repeat;
+            @media (min-width: map-get($grid-breakpoints, "lg")) {
+              width: 25px;
+              height: 25px;
+              background-size: 25px 25px;
+            }
           }
           .info-description {
             color: $normal-text;
@@ -124,11 +140,15 @@ export default {
       }
       .description-col {
         .project-description {
-          max-width: 420px;
+          max-width: 600px;
           color: $normal-text;
           text-align: justify;
           margin: 0 auto;
           margin-bottom: 2rem;
+          padding-top: 25px;
+          @media (min-width: map-get($grid-breakpoints, "lg")) {
+            max-width: 420px;
+          }
         }
       }
       .slider {

@@ -150,12 +150,10 @@ export default {
         }
       }
       .project-image {
-        max-width: 100%;
+        max-width: 420px;
+        width: 100%;
         border-radius: 10px;
         box-shadow: 0px 6px 6px 0px rgba(0,0,0,.16);
-        @media (min-width: map-get($grid-breakpoints, "lg")){
-          max-width: 420px;
-        }
       }
       .projects-item-text {
         display: none;

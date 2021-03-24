@@ -17,7 +17,7 @@ export default class ProfessionalItems {
     {
       id: 'icaro',
       name: 'Ícaro Mourão',
-      description: 'Ícaro Mourão é um Ciêntista da Computação formado pela Universidade Federal do Ceará. Possui o objetivo de entregar valor para o mundo por meio de sistemas automatizados de forma a tornar diversas tarefas mais práticas, eficentes e com um alto valor agragado.',
+      description: 'Ícaro Mourão é um Ciêntista da Computação formado pela Universidade Federal do Ceará. Possui o objetivo de entregar valor para o mundo por meio de sistemas automatizados de forma a tornar diversas tarefas mais práticas, eficentes e com um alto valor agregado.',
       profession: 'Web Design',
       email: 'icaro.mourao1@hotmail.com',
       phone: '(88) 99498-7473',

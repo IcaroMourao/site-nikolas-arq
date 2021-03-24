@@ -9,6 +9,9 @@
           <img :src="nikolas.image" alt="nikolas">
         </div>
         <div class="professionals-description">
+          <div class="professionals-image-mobile">
+            <img :src="nikolas.image" alt="nikolas">
+          </div>
           <p class="name">{{ nikolas.name }}</p>
           <div class="infos">
             <p class="profession">{{ nikolas.profession }}</p>
@@ -25,6 +28,9 @@
           <img :src="icaro.image" alt="icaro">
         </div>
         <div class="professionals-description">
+          <div class="professionals-image-mobile">
+            <img :src="icaro.image" alt="icaro">
+          </div>
           <p class="name">{{ icaro.name }}</p>
           <div class="infos">
             <p class="profession">{{ icaro.profession }}</p>
@@ -69,38 +75,77 @@ export default {
 .professionals-container {
   .projects-header {
     .title {
-      margin-bottom: 6rem;
+      margin-bottom: 2rem;
+      @media (min-width: map-get($grid-breakpoints, "lg")) {
+        margin-bottom: 6rem;
+      }
     }
   }
   .professionals-content {
+    max-width: 450px;
     margin: auto;
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+      max-width: unset;
+    }
     .professionals-wrapper {
       position: relative;
       width: fit-content;
       text-align: left;
-      margin-bottom: 6rem;
+      margin-bottom: 2rem;
+      @media (min-width: map-get($grid-breakpoints, "lg")) {
+        margin-bottom: 6rem;
+      }
       &.nikolas {
-        margin-left: 4rem;
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+          margin-left: 4rem;
+        }
       }
       &.icaro {
-        margin-left: 18rem;
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+          margin-left: 18rem;
+        }
       }
       .professionals-image {
-        max-width: 400px;
-        img {
-          max-width: 250px;
-          max-height: 250px;
-          width: auto;
-          height: auto;
+        display: none;
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+          display: unset;
+          max-width: 400px;
+          img {
+            max-width: 250px;
+            max-height: 250px;
+            width: auto;
+            height: auto;
+          }
         }
       }
       .professionals-description {
-        position: absolute;
-        top: -40px;
-        left: calc(100% - 25px);
         width: fit-content;
-        padding: 2rem 8rem 3rem 4rem;
+        padding: 1rem;
         border: 3px solid black;
+        @media (min-width: 375px) {
+          padding: 2rem;
+        }
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+          position: absolute;
+          top: -40px;
+          left: calc(100% - 25px);
+          width: fit-content;
+          padding: 2rem 8rem 3rem 4rem;
+          border: 3px solid black;
+        }
+        .professionals-image-mobile {
+          max-width: 100%;
+          margin: auto;
+          img {
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            margin-bottom: 1rem;
+          }
+          @media (min-width: map-get($grid-breakpoints, "lg")) {
+            display: none;
+          }
+        }
         .name {
           width: fit-content;
           font-size: 19px;
@@ -111,6 +156,10 @@ export default {
         .infos {
           line-height: .25;
           font-size: 14px;
+          margin-bottom: 2rem;
+          @media (min-width: map-get($grid-breakpoints, "lg")) {
+            margin-bottom: unset;
+          }
           .profession {
             font-weight: bold;
           }

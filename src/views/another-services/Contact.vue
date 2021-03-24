@@ -32,24 +32,14 @@
             placeholder="Digite sua mensagem"
             v-model="formData.message"/>
           <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-          <b-row class="button-wrapper" no-gutters>
-            <b-col cols="12" md="6" class="pr-2">
-              <Button
-                content="Voltar"
-                type="outline"
-                :expanded="true"
-                :uppercase="true"
-                :link="{ path: '/outros-servicos', append: true }"/>
-            </b-col>
-            <b-col cols="12" md="6" class="pl-2">
-              <Button
-                content="Enviar"
-                type="primary"
-                :expanded="true"
-                :uppercase="true"
-                :action="submit"/>
-            </b-col>
-          </b-row>
+          <div class="button-wrapper">
+            <Button
+              content="Enviar"
+              type="primary"
+              :expanded="true"
+              :uppercase="true"
+              :action="submit"/>
+          </div>
         </form>
       </div>
     </div>
@@ -113,14 +103,21 @@ export default {
     background-color: $white-ice;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,.25);
-    padding: 2rem 0;
+    padding: 2rem;
     .contact-form-header {
       padding-bottom: 2rem;
+      .title {
+        font-size: 2rem;
+        @media (min-width: map-get($grid-breakpoints, "md")) {
+        font-size: 40px;
+        }
+      }
     }
     .contact-form-body {
       .button-wrapper {
         max-width: 370px;
         margin: auto;
+        padding-top: 1rem;
       }
     }
   }

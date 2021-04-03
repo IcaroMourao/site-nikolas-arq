@@ -1,4 +1,4 @@
-# site-nikolas-arq
+# nikolas-arq-site
 
 ## Project setup
 ```

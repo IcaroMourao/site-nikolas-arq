@@ -54,15 +54,17 @@ export default {
 <style lang="scss" scoped>
 .contacts-container {
   position: relative;
-  background-color: #fff;
+  background-color: $highlight;
   display: flex;
   .contact-item {
     position: relative;
     background-color: #EDEDED;
     width: 100%;
     height: 450px;
+    border-top: 2px solid $highlight;
     &.consulting {
       background-color: #2F3851;
+      box-shadow: none;
     }
     .triangle-bl {
       position: absolute;
@@ -103,7 +105,7 @@ export default {
         line-height: normal;
         word-wrap: break-word;
         &.consulting {
-          color: #ffffff;
+          color: $highlight;
         }
       }
       .contact-text-description {

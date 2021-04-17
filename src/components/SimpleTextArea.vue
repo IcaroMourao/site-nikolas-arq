@@ -77,6 +77,7 @@ label {
     display: block;
     appearance: none;
     width: 100%;
+    min-height: 100px;
     max-height: 300px;
     box-shadow: none;
     border: none;

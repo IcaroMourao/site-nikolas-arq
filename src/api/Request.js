@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 const getUserToken = () => localStorage.getItem('access_token');
 
-module.exports = {
+export default {
   getDefaultHeaders() {
     return {
       headers: {
@@ -15,21 +15,21 @@ module.exports = {
 
   get(endpoint) {
     return Vue.axios.get(endpoint, this.getDefaultHeaders())
-      .then((res) => res);
+      .then((res) => res.data);
   },
 
   post(endpoint, body) {
     return Vue.axios.post(endpoint, body, this.getDefaultHeaders())
-      .then((res) => res);
+      .then((res) => res.data);
   },
 
   delete(endpoint) {
     return Vue.axios.delete(endpoint, this.getDefaultHeaders())
-      .then((res) => res);
+      .then((res) => res.data);
   },
 
   patch(endpoint, body) {
     return Vue.axios.patch(endpoint, body, this.getDefaultHeaders())
-      .then((res) => res);
+      .then((res) => res.data);
   },
 };

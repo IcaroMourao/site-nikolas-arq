@@ -13,6 +13,7 @@
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import WhatsAppButton from '@/components/WhatsAppButton.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
@@ -20,6 +21,32 @@ export default {
     Header,
     Footer,
     WhatsAppButton,
+  },
+  methods: {
+    ...mapActions({
+      storeUser: 'user/storeUser',
+      loadUser: 'user/loadUser',
+    }),
+    storeToken(key, value) {
+      this.$cookies.set(key, value, '3y');
+    },
+    generateId() {
+      const uuid = this.$uuid.v1();
+      return this.storeUser({ id: uuid })
+        .then(() => {
+          this.storeToken('uuid', uuid);
+        });
+    },
+  },
+  created() {
+    if (!this.$cookies.isKey('uuid')) {
+      this.generateId()
+        .then(() => {
+          this.loadUser({ id: this.$cookies.get('uuid') });
+        });
+    } else {
+      this.loadUser({ id: this.$cookies.get('uuid') });
+    }
   },
 };
 </script>

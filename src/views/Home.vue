@@ -2,28 +2,39 @@
   <div class="home-container">
     <div class="home-banner">
       <div class="image-wrapper">
-        <img :src="require('@/assets/images/home/intro_logo_sem_fundo.gif')" alt="">
+        <img :src="require('@/assets/images/home/intro_logo_sem_fundo.gif')" alt="intro.gif">
       </div>
     </div>
     <div class="page-content">
       <div class="home-projects-featured-title">
         <h1 class="title"> Projetos em destaque </h1>
       </div>
-      <FeaturedProjects />
+      <Loader v-if="isProjectsRequesting  || !isUserLoaded" :fullScreen="false"/>
+      <FeaturedProjects v-else/>
     </div>
     <Contacts />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import Contacts from '@/components/Contacts.vue';
 import FeaturedProjects from '@/components/FeaturedProjects.vue';
+import Loader from '@/components/Loader.vue';
 
 export default {
   name: 'Home',
   components: {
     Contacts,
     FeaturedProjects,
+    Loader,
+  },
+  computed: {
+    ...mapGetters({
+      isProjectsRequesting: 'project/getIsProjectsRequesting',
+      isUserLoaded: 'user/getIsUserLoaded',
+    }),
   },
 };
 </script>
@@ -59,6 +70,8 @@ export default {
     }
   }
   .page-content {
+    position: relative;
+    min-height: 300px;
     padding: 0 !important;
     padding-top: 3rem !important;
     @media(min-width: map-get($grid-breakpoints, "lg")) {

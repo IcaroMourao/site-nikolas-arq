@@ -18,10 +18,19 @@
             class="projects-item-text">
             {{ project.name }}
           </p>
-          <div
-            @click="setLike(project)"
-            :class="{'heart-icon-hover': project.liked, 'heart-icon': !project.liked}" />
-          <div @click="openShareModal(project)" class="share-icon" />
+          <div class="like-wrapper">
+            <div
+              @click="setLike(project)"
+              :class="{
+                'heart-icon-hover': project.liked,
+                'heart-icon': !project.liked,
+              }"
+            />
+            <span v-if="project.likes > 0">{{ project.likes }}</span>
+          </div>
+          <div class="share-wrapper">
+            <div @click="openShareModal(project)" class="share-icon" />
+          </div>
         </div>
       </div>
     </div>
@@ -30,8 +39,8 @@
 </template>
 
 <script>
-import ProjectsItems from '@/items/ProjectsItems';
 import ShareModal from '@/components/ShareModal.vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'ProjectPicker',
@@ -40,11 +49,22 @@ export default {
   },
   data() {
     return {
-      projects: ProjectsItems.projects,
+      projects: [],
       shareProject: {},
     };
   },
+  computed: {
+    ...mapGetters({
+      getProjects: 'project/getProjects',
+      user: 'user/getUser',
+      getProjectById: 'project/getProjectById',
+    }),
+  },
   methods: {
+    ...mapActions({
+      storeLike: 'user/storeLike',
+      loadUser: 'user/loadUser',
+    }),
     getProjectImage(project) {
       return project.img;
     },
@@ -56,16 +76,29 @@ export default {
       this.$router.push({ path: `projetos/${projectId}` });
     },
     setLike(likedProject) {
-      this.projects.forEach((project, index) => {
-        if (project.id === likedProject.id) {
-          this.projects[index].liked = true;
-        }
-      });
+      if (!likedProject.liked) {
+        this.storeLike({ projectId: likedProject.id })
+          .then(() => {
+            this.updateProject(likedProject.id);
+          });
+      }
     },
     openShareModal(project) {
       this.shareProject = project;
       this.$bvModal.show('share-modal');
     },
+    updateProject(projectId) {
+      const { likes, liked } = this.getProjectById(projectId);
+      this.projects.forEach((project, index) => {
+        if (project.id === projectId) {
+          this.projects[index].likes = likes;
+          this.projects[index].liked = liked;
+        }
+      });
+    },
+  },
+  created() {
+    this.projects = this.getProjects;
   },
 };
 </script>
@@ -101,52 +134,63 @@ export default {
           cursor: pointer;
           user-select: none;
         }
-        & > .heart-icon {
-          display: block;
+        .like-wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           position: absolute;
           bottom: 35px;
           left: 35px;
-          width: 24px;
-          height: 24px;
-          background: url('~@/assets/icons/heart.svg');
-          background-size: 24px 24px;
-          background-repeat: no-repeat;
-          &:hover {
+          width: 45px;
+          height: 36px;
+          & > .heart-icon {
+            width: 24px;
+            height: 24px;
+            background: url('~@/assets/icons/heart.svg');
+            background-size: 24px 24px;
+            background-repeat: no-repeat;
+            &:hover {
+              width: 24px;
+              height: 24px;
+              background: url('~@/assets/icons/heart-hover.svg');
+              background-size: 24px 24px;
+              background-repeat: no-repeat;
+            }
+          }
+          & > .heart-icon-hover {
             width: 24px;
             height: 24px;
             background: url('~@/assets/icons/heart-hover.svg');
             background-size: 24px 24px;
             background-repeat: no-repeat;
           }
+          span {
+            font-size: 1.5rem;
+          }
         }
-        & > .share-icon {
-          display: block;
+        .share-wrapper {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
           position: absolute;
           bottom: 35px;
           right: 35px;
-          width: 24px;
-          height: 24px;
-          background: url('~@/assets/icons/share.svg');
-          background-size: 24px 24px;
-          background-repeat: no-repeat;
-          &:hover {
+          width: 45px;
+          height: 36px;
+          & > .share-icon {
             width: 24px;
             height: 24px;
-            background: url('~@/assets/icons/share-hover.svg');
+            background: url('~@/assets/icons/share.svg');
             background-size: 24px 24px;
             background-repeat: no-repeat;
+            &:hover {
+              width: 24px;
+              height: 24px;
+              background: url('~@/assets/icons/share-hover.svg');
+              background-size: 24px 24px;
+              background-repeat: no-repeat;
+            }
           }
-        }
-        & > .heart-icon-hover {
-          display: block;
-          position: absolute;
-          bottom: 35px;
-          left: 35px;
-          width: 24px;
-          height: 24px;
-          background: url('~@/assets/icons/heart-hover.svg');
-          background-size: 24px 24px;
-          background-repeat: no-repeat;
         }
       }
       .project-image {
@@ -158,13 +202,10 @@ export default {
       .projects-item-text {
         display: none;
       }
-      .heart-icon {
+      .like-wrapper {
         display: none;
       }
-      .heart-icon-hover {
-        display: none;
-      }
-      .share-icon {
+      .share-wrapper {
         display: none;
       }
     }

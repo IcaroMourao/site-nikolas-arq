@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import ProjectsItems from '@/items/ProjectsItems';
 import FeaturedProjectItem from '@/components/FeaturedProjectItem.vue';
 import Slick from 'vue-slick';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'FeaturedProjects',
@@ -62,15 +62,20 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapGetters({
+      getProjects: 'project/getProjects',
+    }),
+  },
   created() {
     const projectsId = ['office-in-house', 'suite-rotang', 'santuario-natural'];
-    const projectsFiltered = ProjectsItems.projects
+    const projectsFiltered = this.getProjects
       .filter((project) => projectsId.includes(project.id));
     this.featuredProjects = projectsFiltered.map((project) => ({
       id: project.id,
       name: project.name,
       img: project.img,
-      description: project.shortDescription,
+      description: project.short_description,
     }));
   },
 };

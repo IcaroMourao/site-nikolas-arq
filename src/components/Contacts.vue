@@ -58,12 +58,12 @@ export default {
   display: flex;
   .contact-item {
     position: relative;
-    background-color: #EDEDED;
+    background-color: $primary;
     width: 100%;
     height: 450px;
     border-top: 2px solid $highlight;
     &.consulting {
-      background-color: #2F3851;
+      background-color: $secondary;
       box-shadow: none;
     }
     .triangle-bl {

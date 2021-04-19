@@ -36,7 +36,7 @@
 
 <script>
 import Slider from '@/components/Slider.vue';
-import ProjectsItems from '@/items/ProjectsItems';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Project',
@@ -46,7 +46,7 @@ export default {
   props: ['id'],
   data() {
     return {
-      projects: ProjectsItems.projects,
+      projects: [],
       selectedProject: undefined,
       sliderImgs: {},
       slickOptions: {
@@ -64,7 +64,13 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapGetters({
+      getProjects: 'project/getProjects',
+    }),
+  },
   created() {
+    this.projects = this.getProjects;
     this.selectedProject = this.projects.find((project) => project.id === this.id);
   },
   methods: {

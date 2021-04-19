@@ -155,8 +155,8 @@ export default {
   }
   &.primary {
     color: $primary-button-text;
-    border-color: $primary;
-    @include btnGradient($gradient-direction, $primary-gradient-start, $primary);
+    border-color: $primary-button;
+    @include btnGradient($gradient-direction, $primary-gradient-start, $primary-button);
     &:hover {
       background-image: none;
       background-color: $anchor;
@@ -168,7 +168,9 @@ export default {
   }
   &.disabled {
     background-image: none !important;
-    background-image: linear-gradient(to bottom, $primary-gradient-start, $primary) !important;
+    background-image: linear-gradient(
+      to bottom, $primary-gradient-start, $primary-button
+    ) !important;
     opacity: 0.55;
     color: $disabled-button-text !important;
     cursor: default;

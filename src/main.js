@@ -6,6 +6,9 @@ import Slick from 'vue-slick';
 import UUID from 'vue-uuid';
 import VueAxios from 'vue-axios';
 import VueCookies from 'vue-cookies';
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
+
+import './validators/vee-validate';
 
 import store from './store';
 import router from './router';
@@ -18,6 +21,9 @@ Vue.use(Slick);
 Vue.use(VueAxios, axios);
 Vue.use(UUID);
 Vue.use(VueCookies);
+
+Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver);
 
 axios.defaults.baseURL = process.env.VUE_APP_API;
 

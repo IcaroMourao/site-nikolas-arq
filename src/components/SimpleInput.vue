@@ -1,8 +1,12 @@
 <template>
   <div>
     <label>
-      <span>{{label}}</span>
+      <div class="label-title-wrapper">
+        <span class="label-title">{{ label }}</span>
+        <span v-if="hasError" class="input-error-message">{{ errorMessage }}</span>
+      </div>
       <input
+        :class="{ 'input-error': hasError }"
         :type="type"
         :name="name"
         ref="input"
@@ -46,6 +50,14 @@ export default {
     maxlength: {
       type: String,
     },
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+    errorMessage: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -55,6 +67,17 @@ export default {
   methods: {
     update(e) {
       this.$emit('input', e.target.value);
+      this.content = e.target.value;
+    },
+  },
+  watch: {
+    value(newValue) {
+      this.$emit('input', newValue);
+      this.content = newValue;
+
+      if (newValue === '') {
+        this.$emit('reset-provider');
+      }
     },
   },
 };
@@ -68,15 +91,6 @@ div {
 label {
   display: block;
   margin-bottom: 1.25rem;
-  span {
-    color: $current;
-    margin-bottom: 0.375rem;
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    font-size: 0.625rem;
-    text-transform: uppercase;
-  }
   input {
     display: block;
     appearance: none;
@@ -89,6 +103,9 @@ label {
     outline: none;
     font-size: 1rem;
     color: $normal-text;
+    &.input-error {
+      border: 1px solid $danger;
+    }
   }
 }
 

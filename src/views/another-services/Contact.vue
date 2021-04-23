@@ -6,41 +6,65 @@
         <h1 class="title">Contate-nos</h1>
       </div>
       <div class="contact-form-body">
-        <form @submit.prevent="">
-          <SimpleInput
-            name="name"
-            label="Nome"
-            type="text"
-            placeholder="Digite seu nome"
-            v-model="formData.name"/>
-          <SimpleInput
-            name="email"
-            label="Email"
-            type="email"
-            placeholder="Digite seu melhor email"
-            v-model="formData.email"/>
-          <SimpleInput
-            name="phone"
-            label="Telefone"
-            type="text"
-            placeholder="(99) 99999-9999"
-            v-mask="'(##) #####-####'"
-            v-model="formData.phone"/>
-          <SimpleTextArea
-            name="message"
-            label="Mensagem"
-            placeholder="Digite sua mensagem"
-            v-model="formData.message"/>
-          <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-          <div class="button-wrapper">
-            <Button
-              content="Enviar"
-              type="primary"
-              :expanded="true"
-              :uppercase="true"
-              :action="submit"/>
-          </div>
-        </form>
+        <ValidationObserver v-slot="{ invalid }">
+          <form @submit.prevent="">
+            <ValidationProvider name="name" rules="required" v-slot="{ errors, reset }">
+              <SimpleInput
+                name="name"
+                label="Nome*"
+                type="text"
+                placeholder="Digite seu nome"
+                :hasError="!!errors[0]"
+                :errorMessage="errors[0]"
+                v-on:reset-provider="reset"
+                v-model="formData.name"/>
+            </ValidationProvider>
+            <ValidationProvider name="email" rules="required|email" v-slot="{ errors, reset }">
+              <SimpleInput
+                name="email"
+                label="Email*"
+                type="email"
+                placeholder="Digite seu melhor email"
+                :hasError="!!errors[0]"
+                :errorMessage="errors[0]"
+                v-on:reset-provider="reset"
+                v-model="formData.email"/>
+            </ValidationProvider>
+            <ValidationProvider name="phone" rules="required" v-slot="{ errors, reset }">
+              <SimpleInput
+                name="phone"
+                label="Telefone*"
+                type="text"
+                placeholder="(99) 99999-9999"
+                :hasError="!!errors[0]"
+                :errorMessage="errors[0]"
+                v-on:reset-provider="reset"
+                v-mask="'(##) #####-####'"
+                v-model="formData.phone"/>
+            </ValidationProvider>
+            <ValidationProvider name="message" rules="required" v-slot="{ errors, reset }">
+              <SimpleTextArea
+                name="message"
+                label="Mensagem*"
+                placeholder="Digite sua mensagem"
+                :hasError="!!errors[0]"
+                :errorMessage="errors[0]"
+                v-on:reset-provider="reset"
+                v-model="formData.message"/>
+            </ValidationProvider>
+            <div class="button-wrapper">
+              <Button
+                content="Enviar"
+                type="primary"
+                :isDisabled="invalid || isSendingMail"
+                :expanded="true"
+                :uppercase="true"
+                :action="submit"/>
+            </div>
+          </form>
+        </ValidationObserver>
+        <p v-if="errorMessage" class="error-message text-danger">{{ errorMessage }}</p>
+        <p v-if="successMessage" class="success-message text-success">{{ successMessage }}</p>
       </div>
     </div>
   </div>
@@ -52,6 +76,7 @@ import SimpleInput from '@/components/SimpleInput.vue';
 import SimpleTextArea from '@/components/SimpleTextArea.vue';
 import Button from '@/components/Button.vue';
 import { VueMaskDirective } from 'v-mask';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Contact',
@@ -72,15 +97,54 @@ export default {
         message: '',
       },
       errorMessage: '',
+      successMessage: '',
+      isSendingMail: false,
     };
   },
   methods: {
+    ...mapActions({
+      sendEmail: 'contact/sendEmail',
+    }),
     submit() {
       this.errorMessage = '';
-      const formDataValues = Object.values(this.formData);
-      if (formDataValues.some((field) => field === '')) {
-        // this.errorMessage = 'Todos os campos são obrigatórios';
+      this.validateData(this.formData);
+
+      this.isSendingMail = true;
+      if (!this.errorMessage) {
+        this.sendEmail(this.formData)
+          .then(() => {
+            this.successMessage = 'Já recebi seu email, assim que possível entrarei em contato.';
+            this.errorMessage = '';
+            this.clearForm();
+            this.scrollToMessage();
+            this.isSendingMail = false;
+          })
+          .catch(() => {
+            this.successMessage = '';
+            this.errorMessage = 'Não consegui receber seu email, você poderia tentar o contato por outro canal?';
+            this.scrollToMessage();
+            this.isSendingMail = false;
+          });
       }
+    },
+    validateData(data) {
+      const formDataValues = Object.values(data);
+
+      if (formDataValues.some((field) => field === '')) {
+        this.errorMessage = 'Todos os campos são obrigatórios';
+      }
+    },
+    clearForm() {
+      this.formData = {
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      };
+    },
+    scrollToMessage() {
+      window.scroll(0, 0);
+      window.scroll(0, 200);
     },
   },
 };

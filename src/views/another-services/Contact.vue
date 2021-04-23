@@ -121,7 +121,7 @@ export default {
           })
           .catch(() => {
             this.successMessage = '';
-            this.errorMessage = 'Não consegui receber seu email, você poderia tentar o contato por outro canal?';
+            this.errorMessage = 'Não consegui receber seu email. Tente novamente mais tarde ou tente o contato por outro canal.';
             this.scrollToMessage();
             this.isSendingMail = false;
           });

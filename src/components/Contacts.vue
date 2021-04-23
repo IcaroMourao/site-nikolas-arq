@@ -47,7 +47,7 @@
 
 <script>
 export default {
-  name: 'Contact',
+  name: 'Contacts',
 };
 </script>
 

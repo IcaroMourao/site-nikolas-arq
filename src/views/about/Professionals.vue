@@ -162,6 +162,7 @@ export default {
           }
           .profession {
             font-weight: bold;
+            line-height: normal;
           }
         }
         .arrow-div {

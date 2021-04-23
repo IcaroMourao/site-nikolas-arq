@@ -7,7 +7,7 @@
         <img :src="project.img" alt="project">
       </div>
       <h3>{{ project.name }}</h3>
-      <p class="project-description" v-html="project.description"></p>
+      <div class="project-description" v-html="project.description"></div>
       <div @click="goTo(project.id)" class="see-more">Ver mais...</div>
     </div>
     <div class="project-image" :class="[`image-${index + 1}`]">
@@ -70,12 +70,6 @@ export default {
   }
   &.project-3 {
     .infos-3 {
-      .project-description {
-        margin-bottom: 5.5rem;
-        @media (min-width: map-get($grid-breakpoints, "sm")) {
-          margin-bottom: 4rem;
-        }
-      }
       @media (min-width: map-get($grid-breakpoints, "lg")) {
         position: absolute;
         top: 0;
@@ -89,9 +83,12 @@ export default {
     }
   }
   .project-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: $light;
     max-width: 300px;
-    height: 550px;
+    height: 600px;
     padding: 2rem;
     box-shadow: 0px 6px 6px 0px rgba(0,0,0,.16);
     z-index: -100;

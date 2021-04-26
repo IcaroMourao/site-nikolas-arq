@@ -99,7 +99,7 @@ export default {
       }
       .contact-text-title {
         margin-bottom: 10px;
-        color: #12b2b2;
+        color: $secondary;
         font-size: 1.5rem;
         font-weight: 700;
         line-height: normal;

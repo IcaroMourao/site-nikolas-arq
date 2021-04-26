@@ -25,30 +25,41 @@
               </div>
             </div>
             <div class="slider">
-              <Slider :items="selectedProject.sliderImgs" :slickOptions="slickOptions"/>
+              <Slider
+                v-on:open-slide-show="openSlideShow"
+                :items="selectedProject.sliderImgs"
+                :slickOptions="slickOptions"/>
             </div>
           </b-col>
         </b-row>
       </div>
     </div>
+    <VueGallerySlideshow
+      :images="mapedImages"
+      :index="slideShowIndex"
+      @close="slideShowIndex = null"/>
   </div>
 </template>
 
 <script>
-import Slider from '@/components/Slider.vue';
 import { mapGetters } from 'vuex';
+
+import Slider from '@/components/Slider.vue';
+import VueGallerySlideshow from 'vue-gallery-slideshow';
 
 export default {
   name: 'Project',
   components: {
     Slider,
+    VueGallerySlideshow,
   },
   props: ['id'],
   data() {
     return {
       projects: [],
       selectedProject: undefined,
-      sliderImgs: {},
+      sliderImgs: [],
+      mapedImages: [],
       slickOptions: {
         arrows: true,
         swipe: true,
@@ -62,6 +73,7 @@ export default {
         pauseOnFocus: false,
         pauseOnHover: false,
       },
+      slideShowIndex: null,
     };
   },
   computed: {
@@ -72,14 +84,38 @@ export default {
   created() {
     this.projects = this.getProjects;
     this.selectedProject = this.projects.find((project) => project.id === this.id);
+    this.mapImagesToSlideShow();
   },
   methods: {
     backToProjects() {
       this.$router.push({ path: '/projetos' });
     },
+    openSlideShow(index) {
+      this.slideShowIndex = index;
+    },
+    mapImagesToSlideShow() {
+      this.mapedImages = this.selectedProject.sliderImgs.map((item) => ({
+        url: item.img,
+        alt: item.name,
+      }));
+    },
   },
 };
 </script>
+
+<style lang='scss'>
+.vgs {
+  .vgs__container {
+    margin-top: 1rem;
+    max-width: 100%;
+    height: 95vh;
+  }
+  .vgs__close {
+    margin-top: 1rem;
+    margin-right: .5rem;
+  }
+}
+</style>
 
 <style lang='scss' scoped>
 .project-container{

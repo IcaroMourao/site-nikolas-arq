@@ -2,7 +2,12 @@
   <div class="slider-container">
     <Slick ref="slick" :options="slickOptions ? slickOptions : slickDefault">
       <a v-for="(item, index) in items" :key="index">
-        <img :src="getImage(item)" width="100%" :alt="item.name">
+        <img
+          class="slider-image"
+          @click="triggerSlideShow(index)"
+          :src="getImage(item)"
+          width="100%"
+          :alt="item.name">
       </a>
     </Slick>
   </div>
@@ -47,19 +52,14 @@ export default {
     next() {
       this.$refs.slick.next();
     },
-
     prev() {
       this.$refs.slick.prev();
     },
-
-    reInit() {
-      // Helpful if you have to deal with v-for to update dynamic lists
-      this.$nextTick(() => {
-        this.$refs.slick.reSlick();
-      });
-    },
     getImage(item) {
       return item.img;
+    },
+    triggerSlideShow(index) {
+      this.$emit('open-slide-show', index);
     },
   },
 };
@@ -89,6 +89,10 @@ export default {
   }
 }
 
+.slider-image {
+  cursor: pointer;
+}
+
 .slick-slider {
   margin: 0 !important;
 }
@@ -108,6 +112,15 @@ export default {
   &:before{
     font-size: 30px;
   }
+}
+
+.slideshow-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  z-index: 1000;
 }
 
 </style>

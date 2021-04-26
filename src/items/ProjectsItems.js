@@ -166,6 +166,10 @@ export default class ProjectsItems {
           name: '07',
           img: require('@/assets/images/projects/project5/07.jpg'),
         },
+        {
+          name: '08',
+          img: require('@/assets/images/projects/project5/08.jpg'),
+        },
       ],
     },
   ];
